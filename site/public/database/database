@@ -1,0 +1,35 @@
+-- Active: 1711850672366@@127.0.0.1@5432
+-- Criação do banco de dados
+CREATE TABLE IF NOT EXISTS usuarios (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nome TEXT NOT NULL,
+    email TEXT NOT NULL UNIQUE,
+    senha TEXT NOT NULL,
+    musica_favorita TEXT,
+    data_nascimento DATE,
+    telefone TEXT,
+    cep TEXT,
+    imagem BLOB
+);
+
+-- Criação da tabela de compras
+CREATE TABLE IF NOT EXISTS compras (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    usuario_id INTEGER NOT NULL,
+    item_comprado TEXT NOT NULL,
+    preco REAL NOT NULL,
+    metodo_pagamento TEXT,
+    quantidade INTEGER,
+    cep TEXT,
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
+);
+
+CREATE TABLE IF NOT EXISTS tokens (
+    token text PRIMARY KEY,
+    usuario_id INTEGER,
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
+);
+
+-- Inserção de dados de exemplo
+INSERT INTO usuarios (nome, email, senha, musica_favorita, data_nascimento, telefone, cep) 
+VALUES ('João', 'joao@example.com', 'senha123', 'Rock', '1990-01-01', '123456789', '12345-678');

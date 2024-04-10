@@ -1,0 +1,36 @@
+{
+    "itens": [
+      {
+        "nome": "Coleção Turnê 2021",
+        "preco": 349.99,
+        "imagem": "/images/2021/",
+          "count_img": 3,
+        "descricao_breve": "Blusa e calça com a logo da banda La Ralé.",
+        "descricao": "A Coleção Turnê 2021 apresenta uma blusa de manga comprida branca com a logo da banda La Ralé, combinada com uma calça jogger branca também estilizada com a logo da banda. Essa coleção reflete o estilo urbano e autêntico das integrantes Laila, Rafaella e Leticia, representando a identidade do hip hop."
+      },
+      {
+        "nome": "Coleção Street 2022",
+        "preco": 379.99,
+        "imagem": "/images/2022/",
+          "count_img": 5,
+        "descricao_breve": "Blusa, calça e sapato com a logo da banda La Ralé.",
+        "descricao": "A Coleção Street 2022 apresenta uma blusa de manga comprida branca com a logo da banda La Ralé, combinada com uma calça jogger preta que exibe o nome da banda. Para completar o visual urbano, inclui um sapato branco e preto com a logo da banda. Inspirada no estilo autêntico das integrantes Laila, Rafaella e Leticia, essa coleção destaca-se pela sua representatividade no cenário do hip hop."
+      },
+      {
+        "nome": "Coleção Urban 2023",
+        "preco": 359.99,
+        "imagem": "/images/2023/",
+        "count_img": 5,
+        "descricao_breve": "Blusas, calça e sapato com a logo da banda La Ralé.",
+        "descricao": "A Coleção Urban 2023 apresenta uma variedade de peças em tons bege, todas estampadas com a logo da marca e o nome da banda La Ralé. Inclui uma blusa de manga comprida, uma calça jogger e uma blusa mais simples, todas refletindo o estilo autêntico das integrantes Laila, Rafaella e Leticia. Completa o conjunto um sapato inteiramente branco, representando a identidade urbana e contemporânea da banda."
+      },
+      {
+        "nome": "Coleção Chic 2024",
+        "preco": 399.99,
+        "imagem": "/images/2024/",
+        "count_img": 4,
+        "descricao_breve": "Blusa, calça e camisa xadrez com a logo da banda La Ralé.",
+        "descricao": "A Coleção Chic 2024 traz um toque de elegância e estilo. Apresenta uma blusa de manga comprida e um gorro em tom bege amarelado, ambos estampados com a logo da marca. Complementando o visual, inclui uma calça xadrez em tons de vermelho e bege, acompanhada por um cinto preto, e uma camisa de botão também xadrez. Essa coleção reflete o espírito inovador e a essência única das integrantes Laila, Rafaella e Leticia, representando o hip hop de uma maneira sofisticada e contemporânea."
+      }
+    ]
+  }

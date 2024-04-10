@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Marko+One&display=swap');
+
+body {
+    background-color: #f6f4e8;
+}
+
+
+#omaga {
+    border-radius: 5%;
+}
+
+.countanier-fluid {
+    background-color: black;
+}
+
+header {
+    font-family: 'Marko One', sans-serif;
+    background-color: #f6f4e8;
+}
+
+main {
+    font-family: 'Marko One', sans-serif;
+}
+
+footer {
+    font-family: 'Marko One', sans-serif;
+    background-color: #f6f2e7;
+}

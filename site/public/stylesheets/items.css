@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Marko+One&display=swap');
+
+header {
+    font-family: 'Marko One', sans-serif;
+    background-color: #f6f4e8;
+}
+
+main {
+    font-family: 'Marko One', sans-serif;
+    box-sizing: border-box;
+    margin: auto;
+    padding: 0;
+    width: 80%;
+}
+
+
+footer {
+    font-family: 'Marko One', sans-serif;
+}

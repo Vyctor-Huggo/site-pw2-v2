@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<style>
+    * {
+        box-sizing: border-box;
+        margin: auto;
+        padding: 0;
+    }
+
+    main {
+        padding-top: 10vh;
+        padding-bottom: 20vh;
+        text-align: center;
+    }
+
+    #404 {
+        font-size: 70vw;
+    }
+
+    #404text {
+        font-size: 60vw;
+    }
+</style>
+<body>
+    <main>
+        <h1 id="404">{{ message }}</h1>
+        <p id="404text"><a href="/">Volte a tela inicial</a></p>
+    </main>
+</body>
+</html>

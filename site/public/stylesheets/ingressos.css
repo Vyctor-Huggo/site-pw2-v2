@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Marko+One&display=swap');
+
+header {
+    font-family: 'Marko One', sans-serif;
+    background-color: #f6f4e8;
+}
+
+main {
+    font-family: 'Marko One', sans-serif;
+    box-sizing: border-box;
+    margin: auto;
+    padding: 0;
+    width: 80%;
+}
+
+#stage {
+    position: relative;
+
+    width: 65vw;
+    height: 65vh;
+    background-color: #B4B4B4;
+    margin: 50px auto;
+
+    padding: 1vw;
+
+    overflow: auto;
+
+    border-radius: 20px;
+    border: black 2px solid;
+
+    font-size: 3vw;
+    color: black;
+}
+
+#stagecol1 {
+    display: flex;
+    justify-content: center;
+}
+
+#palco {
+    position: absolute;
+
+    background-color: #D9D9D9;
+
+    width: 15vw;
+    height: 70px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#vip {
+    position: absolute;
+
+    background-color: #A0FFF9;
+
+    margin-top: 110px;
+    width: 20vw;
+    height: 100px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#pista {
+    position: absolute;
+
+    background-color:#2766E2;
+
+    margin-top: 210px;
+    width: 30vw;
+    height: 200px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#inferior {
+    position: absolute;
+
+    background-color:#0057FF;
+
+    margin-top: 410px;
+    width: 40vw;
+    height: 150px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#lateral {
+    position: absolute;
+
+    background-color:#FFB800;
+
+    margin-top: 50px;
+    margin-left: 20px;
+
+    width: 12vw;
+    height: 510px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#lateral p {
+    writing-mode: vertical-lr; /* Define o texto na vertical, da esquerda para a direita */
+    text-orientation: mixed; /* Orientação mista do texto */
+    white-space: nowrap; /* Impede que o texto quebre em várias linhas */
+    transform: scale3d(-1, -1, 1);
+}

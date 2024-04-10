@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Marko+One&display=swap');
+
+* {
+    font-family: 'Marko One', sans-serif;
+}
+
+body {
+    background-color: #f6f4e8;
+}
+
+.container-fluid {
+    background-color: #f6f2e7;
+}
+
+header {
+    font-family: 'Marko One', sans-serif;
+    background-color: #f6f4e8;
+}
+
+main {
+    font-family: 'Marko One', sans-serif;
+}
+
+footer {
+    font-family: 'Marko One', sans-serif;
+    background-color: #f6f2e7;
+}
+
+#circle {
+    height: 100%; /* Defina a altura desejada */
+    border-radius: 10PX; /* Torna a imagem redonda */
+    object-fit: cover; /* Mantém a proporção da imagem */
+}
+
+#dropdown {
+    background-color: #f6f2e7; 
+    border: 1px solid black;
+}
+
+#dropdown:hover {
+    background-color: black;
+    color: #f6f2e7;
+}
