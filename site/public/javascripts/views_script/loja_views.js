@@ -1,6 +1,6 @@
 function makeCards() {
 
-    fetch('Items_loja/items.json').then(response => {
+    fetch('http://localhost:3000/items.json').then(response => {
         if (!response.ok) {
         throw new Error('Erro ao carregar o JSON');
         }
@@ -26,7 +26,7 @@ function makeCards() {
                                 <h5 class="card-title">${nome}</h5>
                                 <p class="card-text">${descricao_breve}</p>
                                 <p class="card-text"><small class="text-body-secondary">R$${preco}</small></p>
-                                <button onclick="redirect_items(this)" class="btn btn-dark">Compre Agora</button>
+                                <button id=${i} onclick="redirect_items(this)" class="btn btn-dark">Compre Agora</button>
                             </div>
                         </div>
                     `;
@@ -36,6 +36,13 @@ function makeCards() {
     .catch(error => {
         console.error('Erro:', error);
     });
+}
+
+function redirect_items(btn) {
+    id = btn.id;
+    
+    const url = `loja/produto/${id}`;
+    window.location.href = url;
 }
 
 document.addEventListener("DOMContentLoaded", function() {
