@@ -14,7 +14,6 @@
     })
 })()
 
-
 const inputCEP = document.getElementById('cep');
 const inputTelefone = document.getElementById('telefone')
 const inputData = document.getElementById('nascimento')
@@ -97,7 +96,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-
 //checar campos
 function ChecarCampos(x) {
     const campo = document.getElementById(x);
@@ -167,10 +165,6 @@ function ChecarCampos(x) {
             break;
     }
 }
-
-
-
-
 
 // DDDs
 const DDDs = [

@@ -3,14 +3,18 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-const session = require('express-session');
-const crypto = require('crypto');
+var session = require('express-session');
+var crypto = require('crypto');
+
+var database = require('./public/javascripts/db_configs/configDB');
 
 var cadastroRouter = require('./routes/cadastro');
 var db_reqRouter = require('./routes/db_requests');
 var loginRouter = require('./routes/login')
 var lojaRouter = require('./routes/loja')
 var inicialRouter = require('./routes/inicial');
+var perfilRouter = require('./routes/perfil');
+var ingressosRouter = require('./routes/ingressos');
 
 var app = express();
 
@@ -18,6 +22,7 @@ var app = express();
 const secretKey = crypto.randomBytes(32).toString('hex');
 
 console.log('Secret key:', secretKey);
+database.createDB();
 
 // Configuração do express-session
 app.use(session({
@@ -41,6 +46,8 @@ app.use('/', db_reqRouter);
 app.use('/', loginRouter );
 app.use('/', lojaRouter);
 app.use('/', inicialRouter);
+app.use('/', perfilRouter);
+app.use('/', ingressosRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -14,9 +14,10 @@ router.get('/sign-in', function(req, res, next) {
 });
 
 router.post('/sign-in', async (req, res, next) => {
-  const { nome, email, senha, album_favorito, nascimento, telefone, CEP } = req.body;
+  const { nome, email, senha, album_favorito, nascimento, telefone, cep, dddSelect } = req.body;
+  const dddtelefone = `${dddSelect} ${telefone}`
   try {
-    const token = await dbUserRequests.addUser(nome, email, senha, album_favorito, nascimento, telefone, CEP);
+    const token = await dbUserRequests.addUser(nome, email, senha, album_favorito, nascimento, dddtelefone, cep);
     
     //Metodo utilizando cookies de sessão
     const user = await loginReqs.validateLogin(email, senha);

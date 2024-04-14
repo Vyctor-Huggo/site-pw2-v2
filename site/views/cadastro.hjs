@@ -334,7 +334,7 @@
     <header class="p-3 mb-3 border-bottom">
         <div id="div-links" class="container">
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
+                <a data-keyword="inicial" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
                     <svg class="bi me-2" width="40" height="32" role="img" aria-label="logo"><use xlink:href="#logo"/></svg>
                 </a>
         
@@ -344,12 +344,7 @@
                     <li><a data-keyword="loja" class="nav-link px-2 link-dark">Loja</a></li>
                     <li><a data-keyword="contatos" class="nav-link px-2 link-dark">Contatos</a></li>
                 </ul>
-
-                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-                        <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
-                </form>
-                
-                <a href="/loja/carrinho" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
+                <a data-keyword="carrinho" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
                     <svg class="bi me-3" width="24" height="24" fill="currentColor"><use xlink:href="#carrinho"/></svg>
                 </a>
                 
@@ -357,15 +352,18 @@
                     <svg id="perfil" class="bi" width="40" height="40" fill="">
                         <defs>
                             <pattern id="imagePattern" patternUnits="userSpaceOnUse" width="24" height="24">
-                                <image xlink: href="/images/jubileu.jpg" x="-4" y="-4" width="24" height="24" />
+                                <image xlink: href="img/jubileu.jpg" x="-4" y="-4" width="24" height="24" />
                             </pattern>
                         </defs>
                         <use xlink:href="#circle" fill="url(#imagePattern)"/>
                     </svg>
                 </button>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="/login">Entrar</a></li> 
-                    <li><a class="dropdown-item" href="/sign-in">Cadastrar-se</a></li>
+                    <li><a class="dropdown-item" data-keyword="Perfil">Minha Conta</a></li>
+                    <li><a class="dropdown-item" data-keyword="Pedidos">Meus pedidos</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" data-keyword="Login">Entrar</a></li> 
+                    <li><a class="dropdown-item" data-keyword="Signin">Cadastrar-se</a></li>
                     <li><hr class="dropdown-divider"></li>
                     <li><a class="dropdown-item">Sair</a></li>
                     
@@ -427,7 +425,7 @@
                             <label for="telefone" class="form-label">Telefone</label>
                             <div class="input-group">
                                 <div class="col-3 m-auto">
-                                    <select id="dddSelect" class="form-select">
+                                    <select id="dddSelect" name="dddSelect" class="form-select">
                                     </select>
                                 </div>
                                 <div class="col-9 m-auto">
@@ -460,7 +458,7 @@
                         </div>
                     </form>
                 </div>
-                <a href="/login"><p class="text-center">Já tem uma conta? Entre por aqui.</p></a>
+                <a data-keyword="Login"><p class="text-center">Já tem uma conta? Entre por aqui.</p></a>
             </div>
         </div>
     </div>
@@ -471,7 +469,7 @@
         <div class="container">
             <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
             <div class="col-md-4 d-flex align-items-center">
-                <a href="/inicial" class="mb-3 me-2 mb-md-1 text-muted text-decoration-none lh-1">
+                <a data-keyword="inicial"href="/inicial" class="mb-3 me-2 mb-md-1 text-muted text-decoration-none lh-1">
                 <svg class="bi" width="30" height="24"><use xlink:href="#logo"/></svg>
                 </a>
                 <span class="mb-3 mb-md-0 text-muted">&copy; 2022 Company, Inc</span>

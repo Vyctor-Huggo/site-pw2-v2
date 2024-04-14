@@ -41,3 +41,14 @@ footer {
     background-color: black;
     color: #f6f2e7;
 }
+
+#tituloColor{
+    background-color: black; 
+    color: #f6f2e7; 
+    border: 1px solid black;
+}
+
+#campoColor {
+    background-color: #f6f2e7; 
+    border: 1px solid black;
+}

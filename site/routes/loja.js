@@ -8,7 +8,7 @@ router.use(bodyParser.urlencoded({ extended: true }));
 
 router.get('/loja', function(req, res, next) {
     try {
-        res.render('loja', { id: req.params.id, message: "oi" });
+        res.render('loja');
     } catch (error) {
         console.error('Erro ao buscar dados:', error.message);
         res.status(500).send('Erro ao buscar dados do produto');

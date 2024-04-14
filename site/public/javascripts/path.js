@@ -1,10 +1,12 @@
 var paths = {
     "inicial": "../inicial",
-    "ingressos": "../ingressos",
+    "ingressos": "/ingressos",
     "loja": "../loja",
     "Signin": "../sign-in",
     "Login": "../login",
     "Perfil": "../perfil",
+    "carrinho": "../loja/Carrinho",
+    "Pedidos" : "../perfil/pedidos",
     "contatos": "#Footer",
     "instagram": "https://www.instagram.com/gatos_fofos_e_engracados/",
     "twitter": "https://twitter.com/gatinarios"

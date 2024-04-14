@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/stylesheets/inicial.css">
-    <script src="/javascripts/views_script/inicial_views.js"></script>
-    <script src="/javascripts/path.js"></script>
-    <link rel="shortcut icon" href="1710466746100.svg" type="image/x-icon">
+    <link rel="stylesheet" href="main.css">
+    <script src="main.js"></script>
+    <script src="../path.js"></script>
+    <link rel="shortcut icon" href="../data/1710466746100.svg" type="image/x-icon">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>La RaLé</title>
@@ -308,13 +308,11 @@
             <path fill-rule="evenodd" d="M14 11V2h1v9zM6 3v10H5V3z"/>
             <path d="M5 2.905a1 1 0 0 1 .9-.995l8-.8a1 1 0 0 1 1.1.995V3L5 4z"/>
         </symbol>
-  
-        <!--Instagram SVG-->
+
         <symbol id="instagram" viewBox="0 0 16 16">
             <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
         </symbol>
-  
-        <!--Twitter SVG-->
+
         <symbol id="twitter" viewBox="0 0 16 16">
             <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
         </symbol>
@@ -332,7 +330,7 @@
     <header class="p-3 mb-3 border-bottom">
         <div id="div-links" class="container">
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
+                <a data-keyword="inicial" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
                     <svg class="bi me-2" width="40" height="32" role="img" aria-label="logo"><use xlink:href="#logo"/></svg>
                 </a>
         
@@ -342,12 +340,7 @@
                     <li><a data-keyword="loja" class="nav-link px-2 link-dark">Loja</a></li>
                     <li><a data-keyword="contatos" class="nav-link px-2 link-dark">Contatos</a></li>
                 </ul>
-
-                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-                        <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
-                </form>
-                
-                <a href="/loja/carrinho" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
+                <a data-keyword="carrinho" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
                     <svg class="bi me-3" width="24" height="24" fill="currentColor"><use xlink:href="#carrinho"/></svg>
                 </a>
                 
@@ -355,7 +348,7 @@
                     <svg id="perfil" class="bi" width="40" height="40" fill="">
                         <defs>
                             <pattern id="imagePattern" patternUnits="userSpaceOnUse" width="24" height="24">
-                                <image xlink: href="/images/jubileu.jpg" x="-4" y="-4" width="24" height="24" />
+                                <image xlink: href="img/jubileu.jpg" x="-4" y="-4" width="24" height="24" />
                             </pattern>
                         </defs>
                         <use xlink:href="#circle" fill="url(#imagePattern)"/>
@@ -363,6 +356,7 @@
                 </button>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" data-keyword="Perfil">Minha Conta</a></li>
+                    <li><a class="dropdown-item" data-keyword="Pedidos">Meus pedidos</a></li>
                     <li><hr class="dropdown-divider"></li>
                     <li><a class="dropdown-item" data-keyword="Login">Entrar</a></li> 
                     <li><a class="dropdown-item" data-keyword="Signin">Cadastrar-se</a></li>
@@ -377,18 +371,17 @@
 
 <!-- Main -->
     <main>
-
         <!-- Carrossel-->
         <div id="carouselExampleAutoplaying" class="carousel slide mb-3" data-bs-ride="carousel">
             <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="/images/loja.jpeg" class="d-block w-100" alt="...">
+                <img src="img/loja.jpeg" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="/images/show.jpg" class="d-block w-100" alt="...">
+                <img src="img/show.jpg" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="/images/plataformas.jpg" class="d-block w-100" alt="...">
+                <img src="img/plataformas.jpg" class="d-block w-100" alt="...">
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
@@ -413,7 +406,7 @@
                     </p>
                 </div>
                 <div class="col-md-6 m-auto">
-                    <img id="omaga" src="/images/larale.png" class="container-fluid" >
+                    <img id="omaga" src="img/larale.png" class="container-fluid" >
                 </div>
             </div>
         </div>
@@ -421,7 +414,7 @@
         <div class="container-fluid" style="background-color: #f6f2e7;">
             <div class="row m-auto">
                 <div class="col-md-6 m-auto">
-                    <img id="omaga" src="/images/larale_white.png" class="container-fluid" >
+                    <img id="omaga" src="img/larale_white.png" class="container-fluid" >
                 </div>
 
                 <div class="col-md-6 m-auto">
@@ -442,7 +435,7 @@
             <!-- Boêmia -->
                 <div class="col-md-4">
                     <div class="card mb-3 bg-dark text-white">
-                        <img src="/images/psicodelico.png" class="card-img-top" alt="...">
+                        <img src="img/psicodelico.png" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title text-center">Boêmia</h5>
                             <p class="card-text">Vida da pessoa que gosta de dormir tarde, de beber com os amigos, divertindo-se geralmente em grupo.</p>
@@ -464,7 +457,7 @@
                 <!-- Bródio -->
                 <div class="col-md-4">
                     <div class="card mb-3 bg-dark text-white">
-                        <img src="/images/brodio.png" class="card-img-top" alt="...">
+                        <img src="img/brodio.png" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title text-center">Bródio</h5>
                             <p class="card-text">Festim, banquete animado e galhofeiro.</p>
@@ -487,7 +480,7 @@
 <!-- Abismo -->
                 <div class="col-md-4">
                     <div class="card mb-3 bg-dark text-white">
-                        <img src="/images/abismo.png" class="card-img-top" alt="...">
+                        <img src="img/abismo.png" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title text-center">Abismo</h5>
                             <p class="card-text">Grande depressão ou cavidade natural, quase vertical, precipício, profundeza.</p>
@@ -511,7 +504,7 @@
         
 <!-- Modal -->
         <div class="modal fade" id="boemia" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-body">
                     <div class="container-fluid">
@@ -554,7 +547,7 @@
         <div class="container">
             <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
             <div class="col-md-4 d-flex align-items-center">
-                <a href="/inicial" class="mb-3 me-2 mb-md-1 text-muted text-decoration-none lh-1">
+                <a href="../Inicial/main.html" class="mb-3 me-2 mb-md-1 text-muted text-decoration-none lh-1">
                 <svg class="bi" width="30" height="24"><use xlink:href="#logo"/></svg>
                 </a>
                 <span class="mb-3 mb-md-0 text-muted">&copy; 2022 Company, Inc</span>

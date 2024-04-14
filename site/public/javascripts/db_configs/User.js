@@ -2,14 +2,14 @@ const configdb = require('./configDB');
 const dbTokenRequests = require('./Token');
 const crypt = require('../crypto');
 
-function addUser(nome, email, senha, musicaFavorita, dataNascimento, telefone, cep) {
+function addUser(nome, email, senha, albumFavorito, dataNascimento, telefone, cep) {
     return new Promise((resolve, reject) => {
         configdb.openDB().then(db => {
             const query = `
-            INSERT INTO usuarios (nome, email, senha, musica_favorita, data_nascimento, telefone, cep) 
+            INSERT INTO usuarios (nome, email, senha, album_favorito, data_nascimento, telefone, cep) 
             VALUES (?, ?, ?, ?, ?, ?, ?)`;
     
-            db.run(query, [nome, email, senha, musicaFavorita, dataNascimento, telefone, cep])
+            db.run(query, [nome, email, senha, albumFavorito, dataNascimento, telefone, cep])
             .then(() => {
                 console.log('Usuário adicionado com sucesso');
                 return db.get('SELECT last_insert_rowid() AS lastID');
@@ -28,10 +28,35 @@ function addUser(nome, email, senha, musicaFavorita, dataNascimento, telefone, c
     })
 }
 
+function updateUserImgbyID(image, id) {
+    try {
+        configdb.openDB().then(db => {
+            const query = `UPDATE usuarios SET imagem = ? WHERE id = ?`;
+
+            db.run(query, [image, id]);
+        });
+    } catch (error) {
+        console.error("Imagem:", error.message);
+        throw error;
+    }
+}
+
+async function updateUserFavAlbumbyID(album, id) {
+    try {
+        configdb.openDB().then(db => {
+            const query = `UPDATE usuarios SET album_favorito = ? WHERE id = ?`;
+
+            db.run(query, [album, id]);
+        });
+    } catch (error) {
+        console.error("Imagem:", error.message);
+        throw error;
+    }
+}
+
 async function getUserbyID(id) {
     try {
         const db = await configdb.openDB();
-        console.log('Conexão com o banco de dados estabelecida');
         
         const query = `SELECT * FROM usuarios WHERE id = ?`;
         const rows = await db.get(query, [id]);
@@ -48,7 +73,6 @@ async function getUserbyID(id) {
 async function getUserbyEmail(email) {
     try {
         const db = await configdb.openDB();
-        console.log('Conexão com o banco de dados estabelecida');
         
         const query = `SELECT * FROM usuarios WHERE email = ?`;
         const rows = await db.get(query, [email]); // Aguarda a resolução da Promise
@@ -67,7 +91,6 @@ async function getUserbyEmail(email) {
 async function showAllUsers() {
     try {
         const db = await configdb.openDB();
-        console.log('Conexão com o banco de dados estabelecida');
         
         const query = `SELECT * FROM usuarios`;
         const rows = await db.all(query);
@@ -83,4 +106,4 @@ async function showAllUsers() {
 
 
 
-module.exports = { addUser, getUserbyID , getUserbyEmail, showAllUsers }
+module.exports = { addUser, getUserbyID , getUserbyEmail, updateUserImgbyID, updateUserFavAlbumbyID, showAllUsers }

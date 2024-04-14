@@ -1,54 +1,43 @@
-async function makeCards() {
-    try {
-        // Carregando o arquivo JSON
-        const response = await fetch('../../items.json');
-        const lojaData = await response.json();
+function makeCards() {
 
-        var div_items = document.querySelectorAll('.card.text-center');
-        var a = 0;
-        console.log(lojaData.itens.length);
-        for (let i = 0; i < div_items.length; i++) {
-            var element = div_items[i];
-            var btn_element = element.querySelectorAll('button')[0];
-
-            element.id = a;
-            btn_element.id = a;
-            a++;
-
-            if(a > lojaData.itens.length-1) {
-                a = 0;
-            }
+    fetch('Items_loja/items.json').then(response => {
+        if (!response.ok) {
+        throw new Error('Erro ao carregar o JSON');
         }
+        return response.json();
+    }).then(data => {
 
-        div_items.forEach(element => {
-            var imagem = element.querySelectorAll('img')[0];
-            var nome = element.querySelectorAll('h5')[0];
-            var descricao = element.querySelectorAll('p')[0];
-            var preco = element.querySelectorAll('small')[0];
+        const objetos = data.itens
+        console.log(objetos.length)
+        
+        for (let i = 0; i < objetos.length; i++) {
+            const nome = objetos[i].nome
+            const preco = objetos[i].preco
+            const imagem = objetos[i].imagem + "1.png"
+            const descricao_breve = objetos[i].descricao_breve
+            console.log(imagem)
 
-            var produto = lojaData.itens[element.id];
-
-            nome.innerHTML = produto.nome;
-            descricao.innerText = produto.descricao_breve;
-            preco.innerText = produto.preco;
-
-            imagem.src = produto.imagem + "1.png";
-
-        });
-
-    } catch (error) {
-        console.error('Erro ao carregar o arquivo JSON:', error);
-    }
-}
-
-function redirect_items(btn) {
-    id = btn.id;
-    
-    const url = `/loja/produto/${id}`;
-    window.location.href = url;
+            var card  = document.createElement("div");
+            card.className = "col-md-4";
+            card.innerHTML = `    
+                        <div class="card text-center">
+                            <img src="${imagem}" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                <h5 class="card-title">${nome}</h5>
+                                <p class="card-text">${descricao_breve}</p>
+                                <p class="card-text"><small class="text-body-secondary">R$${preco}</small></p>
+                                <button onclick="redirect_items(this)" class="btn btn-dark">Compre Agora</button>
+                            </div>
+                        </div>
+                    `;
+            document.getElementById('rows').appendChild(card)
+        } 
+    })
+    .catch(error => {
+        console.error('Erro:', error);
+    });
 }
 
 document.addEventListener("DOMContentLoaded", function() {
     makeCards();
-    console.log("cards criados");
 });

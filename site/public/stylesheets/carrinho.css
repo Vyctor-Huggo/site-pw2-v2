@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Marko+One&display=swap');
+
+*{
+    font-family: 'Marko One', sans-serif;
+}
+
+body {
+    background-color: #f6f4e8;
+}
+
+
+#omaga {
+    border-radius: 5%;
+}
+
+#main {
+    display: flex;
+    align-items: center ;
+    justify-content: center;
+    min-height: 80vh;
+}
+
+header {
+    background-color: #f6f4e8;
+}
+
+footer {
+    background-color: #f6f2e7;
+}
+
+#cabeca-card {
+    background-color: #f6f2e7;
+}
+
+#butao {
+    background-color: black;
+    border: black;
+    color:#f6f2e7;
+}
+
+#alinhar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#butaozin {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border: none ;
+}
+
+
+
+
+
