@@ -1,12 +1,12 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var session = require('express-session');
-var crypto = require('crypto');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const session = require('express-session');
+const crypto = require('crypto');
 
-var database = require('./public/javascripts/db_configs/configDB');
+const database = require('./public/javascripts/db_configs/configDB');
 
 var cadastroRouter = require('./routes/cadastro');
 var db_reqRouter = require('./routes/db_requests');
@@ -15,6 +15,7 @@ var lojaRouter = require('./routes/loja')
 var inicialRouter = require('./routes/inicial');
 var perfilRouter = require('./routes/perfil');
 var ingressosRouter = require('./routes/ingressos');
+var carrinhoRouter = require('./routes/carrinho');
 
 var app = express();
 
@@ -41,13 +42,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', cadastroRouter);
-app.use('/', db_reqRouter);
-app.use('/', loginRouter );
-app.use('/', lojaRouter);
+app.use('/sign-in', cadastroRouter);
+app.use('/db', db_reqRouter);
+app.use('/login', loginRouter );
+app.use('/loja', lojaRouter);
 app.use('/', inicialRouter);
-app.use('/', perfilRouter);
-app.use('/', ingressosRouter);
+app.use('/perfil', perfilRouter);
+app.use('/ingressos', ingressosRouter);
+app.use('/carrinho', carrinhoRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

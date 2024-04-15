@@ -6,10 +6,10 @@ const loginReqs = require('../public/javascripts/loginRequests')
 // Configuração do body-parser para analisar solicitações POST
 router.use(bodyParser.urlencoded({ extended: true }));
 
-router.get('/login', function(req, res, next) {
+router.get('/', function(req, res, next) {
   res.render('login', {message: ''});
 });
-router.post('/login', async (req, res) => {
+router.post('/', async (req, res) => {
     const { email, senha } = req.body;
     console.log('email: ', email, '\nsenha: ', senha);
     try {
@@ -18,7 +18,7 @@ router.post('/login', async (req, res) => {
         console.log("Login efetuado: ", user);
         req.session.user = [user];
         console.log("session:", req.session.user);
-        res.redirect('/db/login/user')
+        res.redirect('/perfil')
     } catch (error) {
         console.error('Erro ao fazer login:', error.message);
         res.render('login', {message: error.message})

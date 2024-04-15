@@ -5,7 +5,7 @@ var paths = {
     "Signin": "../sign-in",
     "Login": "../login",
     "Perfil": "../perfil",
-    "carrinho": "../loja/Carrinho",
+    "carrinho": "../carrinho",
     "Pedidos" : "../perfil/pedidos",
     "contatos": "#Footer",
     "instagram": "https://www.instagram.com/gatos_fofos_e_engracados/",

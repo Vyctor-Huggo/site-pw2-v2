@@ -9,11 +9,11 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 
 /* GET home page. */
-router.get('/sign-in', function(req, res, next) {
+router.get('/', function(req, res, next) {
   res.render('cadastro', { title: 'Express' });
 });
 
-router.post('/sign-in', async (req, res, next) => {
+router.post('/', async (req, res, next) => {
   const { nome, email, senha, album_favorito, nascimento, telefone, cep, dddSelect } = req.body;
   const dddtelefone = `${dddSelect} ${telefone}`
   try {

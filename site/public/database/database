@@ -1,3 +1,4 @@
+-- Active: 1711850672366@@127.0.0.1@5432
 CREATE TABLE IF NOT EXISTS usuarios (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     nome TEXT NOT NULL,
@@ -16,9 +17,9 @@ CREATE TABLE IF NOT EXISTS compras (
     usuario_id INTEGER NOT NULL,
     item_comprado TEXT NOT NULL,
     preco REAL NOT NULL,
-    metodo_pagamento TEXT,
-    quantidade INTEGER,
-    cep TEXT,
+    metodo_pagamento TEXT NOT NULL,
+    frete REAL NOT NULL,
+    cep TEXT NOT NULL,
     FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
 );
 

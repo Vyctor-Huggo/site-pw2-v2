@@ -1,8 +1,10 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const perfilRequests = require('../public/javascripts/perfilRequests');
+const dbPurchaseRequests = require('../public/javascripts/db_configs/Compras')
 const multer = require('multer');
 const sharp = require("sharp");
+const axios = require('axios');
 const router = express.Router();
 
 // Configuração do body-parser para analisar solicitações POST
@@ -11,7 +13,7 @@ router.use(bodyParser.urlencoded({ extended: true }));
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
 
-router.get('/perfil', function(req, res, next) {
+router.get('/', function(req, res, next) {
     if(req.session.user) {
         const user = req.session.user[0];
         console.log(user);
@@ -38,13 +40,12 @@ router.get('/perfil', function(req, res, next) {
             )   
             console.log("cuidado:", user.album_favorito)
         }
-        
     } else {
         res.redirect('/login');
     }
 });
 
-router.post('/perfil', upload.single('file'), async (req, res, next) => {
+router.post('/', upload.single('file'), async (req, res, next) => {
     const album = req.body.album;
     const id = req.session.user[0].id;
     console.log(album);
@@ -72,6 +73,103 @@ router.post('/perfil', upload.single('file'), async (req, res, next) => {
         console.error('Erro ao cortar a imagem:', err);
         res.status(500).send('Erro ao cortar a imagem');
     });
+});
+
+router.get('/pedidos', async function(req, res, next) {
+    if(req.session.user) {
+        const user = req.session.user[0];
+        const response = await axios.get('http://localhost:3000/items.json');
+        const items = response.data.itens;
+        let pedidos_card = ``;
+        let items_card = ``;
+        let modal_card = ``;
+        dbPurchaseRequests.showAllPurchasesbyUser(parseInt(user.id)).then(compras => {
+            compras.forEach(compra => {
+                items_card = ``;
+                let items_compra = JSON.parse(compra.item_comprado);
+
+                items_compra.forEach(([id, quantidade]) => {
+                    const item = items.find(objeto => objeto.id === parseInt(id));
+                    items_card += `
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Produto</th>
+                                            <th class="text-center" scope="col">Quantidade</th>
+                                            <th scope="col">Preço</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td >${item.nome}</td>
+                                            <td class="text-center">${quantidade}</td>
+                                            <td>R$ ${item.preco * quantidade}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    `;
+                })
+
+                pedidos_card += `
+                    <div class="card mb-3" style="background-color: #f6f2e7;">
+                        <div class="card-body">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <p><strong>NÚMERO DO PEDIDO</strong></p>
+                                        <p>#${compra.id}</p>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <p><strong>STATUS</strong></p>
+                                        <p style="color: green;">Concluido</p>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <p><strong>DATA</strong></p>
+                                        <p>20/02/2024</p>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <p><strong>PAGAMENTO</strong></p>
+                                        <p style="color: orangered;">${compra.metodo_pagamento}</p>
+                                    </div>
+                                    <div id="alinhar" class="col-md-3">
+                                        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#Modal${compra.id}" style="color: #f6f2e7;">
+                                            Detalhes
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                modal_card += `
+                <div class="modal fade" id="Modal${compra.id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header" style="background-color: black; color: #f6f2e7;">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Pedido #${compra.id}</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body" style="background-color: #f6f2e7;">
+                                <h5>Total pago: R$ ${compra.preco}</h5>
+                                    ${items_card}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                `;
+            });
+            res.render('pedidos', {pedidos_card, modal_card});
+        })
+    } else {
+        res.redirect('/login');
+    }
+    
+    
 });
 
 module.exports = router;

@@ -1,37 +1,66 @@
-document.addEventListener('DOMContentLoaded', function() {
-    total()
-});
-
-//Total automático
-function total() {
-    var valorProdutos = parseFloat(document.getElementById('valor_produto').innerText.replace('R$', '').replace(',', '.'))
-    var frete = parseFloat(document.getElementById('frete').innerText.replace('R$', '').replace(',', '.'))
-    var total = valorProdutos + frete;
-    var total_seco = document.getElementById('total').innerText = 'R$' + total.toFixed(2).replace('.', ',');
-}
-
-//aumentar/diminuir produtos
-const preco = document.getElementById('precin')
-const valorItem = parseFloat(preco.innerText.replace('R$', '').replace(',', '.'))
-
-function produNum(x) {
-    const valor = document.getElementById("produNum");
-    const valorInt = parseInt(valor.value)
-
-    if (x === 'aumento') {
-        valor.value = valorInt + 1
-        preco.innerHTML = 'R$' + (valorItem * valor.value).toFixed(2).replace('.', ',')
-    }else if (x === 'diminui') {
-        if (valor.value > 1) {
-            valor.value = valorInt - 1
-            preco.innerHTML = 'R$' + (valorItem * valor.value).toFixed(2).replace('.', ',')
+    function diminuirProduto(id, remover) {
+    fetch(`/carrinho/remover-produto/${id}/${remover}`, {
+        method: 'POST'
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Erro ao remover o produto do carrinho');
         }
-    }
+
+        window.location.reload();
+    })
+    .catch(error => {
+        console.error('Erro ao remover o produto:', error);
+    });
 }
 
-const cepUrl = '06702567'
+function aumentarProduto(id) {
+    fetch(`/carrinho/adicionar-produto/${id}`, {
+        method: 'POST'
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Erro ao remover o produto do carrinho');
+        }
 
-fetch(`https://viacep.com.br/ws/${cepUrl}/json/`)
+        window.location.reload();
+    })
+    .catch(error => {
+        console.error('Erro ao remover o produto:', error);
+    });
+}
+
+function realizarPedido() {
+    const selectPagamento = document.getElementById('selectPagamento');
+    
+
+    const dados = {
+        totalCarrinho: totalCarrinho,
+        freteCarrinho: freteCarrinho,
+        valCarrinho: valCarrinho,
+        pagamento: selectPagamento.value
+    };
+    console.log(dados)
+    fetch(`/carrinho/finalizar-compra/`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json' // Indica que o corpo da requisição é JSON
+        },
+        body: JSON.stringify(dados)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Erro ao remover o produto do carrinho');
+        };
+        
+        window.location.href = '/carrinho/finalizar-compra/';
+    })
+    .catch(error => {
+        console.error('Erro ao remover o produto:', error);
+    });
+}
+
+fetch(`https://opencep.com/v1/${cepUrl.replace(/[^0-9]/g,'')}.json`)
     .then(response => {
         if (!response.ok) {
         throw new Error('Erro ao carregar o JSON');
@@ -47,5 +76,5 @@ fetch(`https://viacep.com.br/ws/${cepUrl}/json/`)
     })
     .catch(error => {
         console.error('Erro:', error);
-    });
+});
 

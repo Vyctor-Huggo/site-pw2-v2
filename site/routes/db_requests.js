@@ -1,9 +1,10 @@
 const express = require('express');
 const dbUserRequests = require('../public/javascripts/db_configs/User');
 const dbTokenRequests = require('../public/javascripts/db_configs/Token');
+const dbPurchaseRequests = require('../public/javascripts/db_configs/Compras');
 const router = express.Router();
 
-router.get('/db/login/user', function(req, res) {
+router.get('/login/user', function(req, res) {
     if(req.session.user) {
         const user = req.session.user;
         console.log("usuario: ", user)
@@ -46,7 +47,7 @@ router.get('/db/login/user', function(req, res) {
     
 })
 
-router.get('/db/users/:id?', function(req, res, next) {
+router.get('/users/:id?', function(req, res, next) {
     const id = req.params.id;
 
     if (id) {
@@ -89,6 +90,34 @@ router.get('/db/users/:id?', function(req, res, next) {
         });  
     }
 });
+
+router.get('/purchases', function(req, res, next) {
+    dbPurchaseRequests.showAllPurchasesbyUser(1).then(compras => {
+        let comprasListHTML = '<ul>';
+        compras.forEach(compra => {
+          const compraJSON = JSON.stringify(compra, null, 2);
+          comprasListHTML += `<li><pre>${compraJSON}</pre></li>`;
+        });
+        comprasListHTML += '</ul>';
+        res.send(`
+          <!DOCTYPE html>
+          <html lang="en">
+          <head>
+              <meta charset="UTF-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <title>Lista de JSONs</title>
+          </head>
+          <body>
+              <h1>Lista de JSONs:</h1>
+              ${comprasListHTML}
+          </body>
+          </html>
+        `);
+    }).catch(error => {
+        console.error('Erro ao buscar Compras:', error.message);
+        res.status(500).send('Erro ao buscar Compras');
+    });
+})
 
 function printUserbyId(id, res) {
     dbUserRequests.getUserbyID(id).then(user => {
