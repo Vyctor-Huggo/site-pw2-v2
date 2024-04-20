@@ -346,7 +346,7 @@
                     <li><a class="dropdown-item" data-keyword="Login">Entrar</a></li> 
                     <li><a class="dropdown-item" data-keyword="Signin">Cadastrar-se</a></li>
                     <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item">Sair</a></li>
+                    <li><a class="dropdown-item" id="logoutLink">Sair</a></li>
                     
                 </ul>
 
@@ -590,4 +590,5 @@
     </footer>
 
 </body>
+<script src="/javascripts/views_script/logout.js"></script>
 </html>

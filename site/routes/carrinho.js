@@ -80,7 +80,7 @@ router.get('/', async function(req, res, next) {
             telefone: `${user.telefone}`
         });
     } else {
-         res.redirect('/login'); 
+        res.redirect('/login'); 
     }
     
 });
@@ -138,11 +138,11 @@ router.post('/finalizar-compra/', async function(req, res, next) {
             pedido.pagamento, 
             pedido.items
         );
-        
-        res.redirect('/db/purchases');
+        delete req.session.prods;
+        res.redirect('/perfil/pedidos')
 
     } catch (error) {
-        console.error("cuceta: ", error);
+        console.error("erro ai adicionar pedidos: ", error);
     }
     
 });

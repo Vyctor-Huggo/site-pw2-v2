@@ -7,7 +7,11 @@ const loginReqs = require('../public/javascripts/loginRequests')
 router.use(bodyParser.urlencoded({ extended: true }));
 
 router.get('/', function(req, res, next) {
-  res.render('login', {message: ''});
+    if(!req.session.user) {
+        res.render('login', {message: ''});
+    } else {
+        res.redirect('/perfil');
+    }
 });
 router.post('/', async (req, res) => {
     const { email, senha } = req.body;

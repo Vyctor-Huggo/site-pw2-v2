@@ -26,7 +26,7 @@ async function createDB() {
 
 function openDB() {
     return open({
-       filename: './public/database/database.db',
+        filename: './public/database/database.db',
        //filename: '../../database/database.db', // para rodar no node
         driver: sqlite3.Database
 

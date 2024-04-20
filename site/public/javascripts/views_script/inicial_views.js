@@ -5,39 +5,39 @@ function texts(x) {
     switch(x) {
         case 1:
             elemento = "Sol e Alegria";
-            img.setAttribute("src", "img/boema.jpeg");
+            img.setAttribute("src", "images/boema.jpeg");
             break;
         case 2:
             elemento = "Cultivando Sonhos";
-            img.setAttribute("src", "img/boema.jpeg");
+            img.setAttribute("src", "images/boema.jpeg");
             break;
         case 3:
             elemento = "Noites de Haze";
-            img.setAttribute("src", "img/boema.jpeg");
+            img.setAttribute("src", "images/boema.jpeg");
             break;
         case 4:
             elemento = "Restos de Terra";
-            img.setAttribute("src", "img/brodio.jpeg");
+            img.setAttribute("src", "images/brodio.jpeg");
             break;
         case 5:
             elemento = "Lágrimas da Rua";
-            img.setAttribute("src", "img/brodio.jpeg");
+            img.setAttribute("src", "images/brodio.jpeg");
             break;
         case 6:
             elemento = "Noites Sem Fim";
-            img.setAttribute("src", "img/brodio.jpeg");
+            img.setAttribute("src", "images/brodio.jpeg");
             break;
         case 7:
             elemento = "Madrugada Serrana";
-            img.setAttribute("src", "img/abismo.jpeg");
+            img.setAttribute("src", "images/abismo.jpeg");
             break;
         case 8:
             elemento = "Páginas do Passado";
-            img.setAttribute("src", "img/abismo.jpeg");
+            img.setAttribute("src", "images/abismo.jpeg");
             break;
         case 9:
             elemento = "Cicatrizes da alma";
-            img.setAttribute("src", "img/abismo.jpeg");
+            img.setAttribute("src", "images/abismo.jpeg");
             break;
     }
 

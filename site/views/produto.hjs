@@ -306,31 +306,51 @@
 
     <!--Header-->
     <header class="p-3 mb-3 border-bottom">
-      <div id="div-links" class="container">
-          <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-              <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
-                  <svg class="bi me-2" width="40" height="32" role="img" aria-label="logo"><use xlink:href="#logo"/></svg>
-              </a>
-      
-              <ul id="links" class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                  <li><a data-keyword="inicial" class="nav-link px-2 link-dark">Inicio</a></li>
-                  <li><a data-keyword="ingressos" class="nav-link px-2 link-dark">Ingressos</a></li>
-                  <li><a data-keyword="loja" class="nav-link px-2 link-dark">Loja</a></li>
-                  <li><a data-keyword="contatos" class="nav-link px-2 link-dark">Contatos</a></li>
-              </ul>
-      
-              <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-                  <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
-              </form>
-          </div>
-      </div>
+        <div id="div-links" class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <a data-keyword="inicial" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
+                    <svg class="bi me-2" width="40" height="32" role="img" aria-label="logo"><use xlink:href="#logo"/></svg>
+                </a>
+        
+                <ul id="links" class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li><a data-keyword="inicial" class="nav-link px-2 link-dark">Inicio</a></li>
+                    <li><a data-keyword="ingressos" class="nav-link px-2 link-dark">Ingressos</a></li>
+                    <li><a data-keyword="loja" class="nav-link px-2 link-dark">Loja</a></li>
+                    <li><a data-keyword="contatos" class="nav-link px-2 link-dark">Contatos</a></li>
+                </ul>
+                <a data-keyword="carrinho" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
+                    <svg class="bi me-3" width="24" height="24" fill="currentColor"><use xlink:href="#carrinho"/></svg>
+                </a>
+                
+                <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    <svg id="perfil" class="bi" width="40" height="40" fill="">
+                        <defs>
+                            <pattern id="imagePattern" patternUnits="userSpaceOnUse" width="24" height="24">
+                                <image xlink: href="img/jubileu.jpg" x="-4" y="-4" width="24" height="24" />
+                            </pattern>
+                        </defs>
+                        <use xlink:href="#circle" fill="url(#imagePattern)"/>
+                    </svg>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" data-keyword="Perfil">Minha Conta</a></li>
+                    <li><a class="dropdown-item" data-keyword="Pedidos">Meus pedidos</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" data-keyword="Login">Entrar</a></li> 
+                    <li><a class="dropdown-item" data-keyword="Signin">Cadastrar-se</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" id="logoutLink">Sair</a></li>
+                </ul>
+
+            </div>
+        </div>
     </header>
 
     <br>
 
     <main id="conteudo-item">
-      <div class="row m-auto align-items-center">
-        <div class="col m-auto">
+      <div class="row m-auto">
+        <div class="col-md-8 m-auto">
           <div id="CC" class="carousel slide" style="width: 800px; border-radius: 40%;">
             <div id="imagem" class="carousel-inner">
             </div>
@@ -343,22 +363,20 @@
               <span class="visually-hidden">Next</span>
             </button>
           </div>
-
-        </div>
-        <div class="col-4 ">
-            <div class="card" style="height: 100%;">
-                <div id="nome" class="card-header" style="width: 100%; text-align: center;"></div>
-                    <div class="card-body">
-                        <h5 id="descricao" class="card-title" style="text-align: justify; line-height: 1.5;"></h5>
-                        <br>
-                        <p id="preco" class="card-text"></p>
-                        <form action="/loja" id="meuForm" method="POST">
-                            <input type="hidden" name="id" id="id">
-                            <button type="submit" class="btn btn-dark">Comprar Agora</button>
-                        </form>
-                    </div>
-                </div>
+        </div> 
+        <div class="col-md-4 m-auto">
+          <div class="card mt-3">
+            <div id="nome" class="card-header" style="width: 100%; text-align: center;"></div>
+            <div class="card-body">
+              <h5 id="descricao" class="card-title" style="text-align: justify; line-height: 1.5;"> </h5>
+              <br>
+              <p id="preco" class="card-text"></p>
+              <form action="/loja" id="meuForm" method="POST">
+                  <input type="hidden" name="id" id="id">
+                  <button type="submit" class="btn btn-dark">Comprar Agora</button>
+              </form>
             </div>
+          </div>
         </div>
       </div>
     </main>
@@ -391,5 +409,6 @@
     </script>
 
     <script src="/javascripts/views_script/produto_views.js"></script>
+    <script src="/javascripts/views_script/logout.js"></script>
 </body>
 </html>

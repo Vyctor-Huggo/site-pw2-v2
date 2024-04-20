@@ -10,7 +10,9 @@ router.get('/inicial', function(req, res, next) {
 });
 
 router.post('/sair', function(req, res, next) {
-  req
+  delete req.session.user;
+  console.log('oweqwioe');
+  res.redirect('/login');
 })
 
 module.exports = router;
