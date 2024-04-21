@@ -367,13 +367,13 @@
                     <button id="colecao" class="nav-link" onclick="select_itens(this)">Coleções</button>
                 </li>
                 <li class="nav-item">
-                    <button class="nav-link">Acessórios</a>
+                    <button id="acessorio" class="nav-link">Acessórios</a>
                 </li>
                 <li class="nav-item">
-                    <button class="nav-link">Camisetas</a>
+                    <button id="camiseta" class="nav-link">Camisetas</a>
                 </li>
                 <li class="nav-item">
-                    <button class="nav-link">Blusas</a>
+                    <button id="blusa" class="nav-link">Blusas</a>
                 </li>
             </ul>
         </div>

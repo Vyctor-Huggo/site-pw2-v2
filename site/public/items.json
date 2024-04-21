@@ -189,6 +189,16 @@
         "count_img": 1,
         "descricao_breve": "Caderno de Desenho estilo La Ralé",
         "descricao": "Um belo caderno de desenho ao melhor estilo La Ralé"
+      },
+      {
+        "id": 20,
+        "nome": "Blusa La Ralé",
+        "tipo": "blusa",
+        "preco": 99.98,
+        "imagem": "/images/blusa2/",
+        "count_img": 1,
+        "descricao_breve": "Blusa com estampa La Ralé",
+        "descricao": "Uma blusa de manga comprida com estampas nas mangas e nas costas da La Ralé"
       }
     ]
   }
