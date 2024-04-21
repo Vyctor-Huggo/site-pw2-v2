@@ -38,11 +38,18 @@ function makeCards() {
     });
 }
 
+
 function redirect_items(btn) {
     id = btn.id;
     
     const url = `loja/produto/${id}`;
     window.location.href = url;
+}
+
+function select_itens(bnt) {
+    id = bnt.id;
+    const url_select = `loja/${id}`;
+    window.location.href = url_select;
 }
 
 document.addEventListener("DOMContentLoaded", function() {

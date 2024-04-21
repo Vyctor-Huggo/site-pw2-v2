@@ -13,10 +13,10 @@ footer {
 }
 
 
-#nav li a .active{
+#nav li button .active{
     color: black;
 }
 
-#nav li a:not(.active){
+#nav li button:not(.active){
     color: gray;
 }

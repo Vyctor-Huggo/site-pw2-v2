@@ -361,19 +361,19 @@
         <div class="container-fluid mb-3">
             <ul id="nav" class="nav nav-underline justify-content-center">
             <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Todos os itens</a>
+                    <button class="nav-link active" aria-current="page">Todos os itens</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="loja">Coleções</a>
+                    <button id="colecao" class="nav-link" onclick="select_itens(this)">Coleções</button>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Acessórios</a>
+                    <button class="nav-link">Acessórios</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Camisetas</a>
+                    <button class="nav-link">Camisetas</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Blusas</a>
+                    <button class="nav-link">Blusas</a>
                 </li>
             </ul>
         </div>

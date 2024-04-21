@@ -3,6 +3,7 @@
       {
         "id": 1,
         "nome": "Coleção Turnê 2021",
+        "tipo": "colecao",
         "preco": 349.99,
         "imagem": "/images/2021/",
           "count_img": 3,
@@ -12,6 +13,7 @@
       {
         "id": 2,
         "nome": "Coleção Street 2022",
+        "tipo": "colecao",
         "preco": 379.99,
         "imagem": "/images/2022/",
           "count_img": 5,
@@ -21,6 +23,7 @@
       {
         "id": 3,
         "nome": "Coleção Urban 2023",
+        "tipo": "colecao",
         "preco": 359.99,
         "imagem": "/images/2023/",
         "count_img": 5,
@@ -30,6 +33,7 @@
       {
         "id": 4,
         "nome": "Coleção Chic 2024",
+        "tipo": "colecao",
         "preco": 399.99,
         "imagem": "/images/2024/",
         "count_img": 4,
@@ -39,6 +43,7 @@
       {
         "id": 5,
         "nome": "Boné 2022",
+        "tipo": "colecao",
         "preco": 59.99,
         "imagem": "/images/bone/",
         "count_img": 1,
@@ -48,6 +53,7 @@
       {
         "id": 6,
         "nome": "Par de Meias",
+        "tipo": "acessorio",
         "preco": 29.99,
         "imagem": "/images/meia/",
         "count_img": 1,
@@ -57,6 +63,7 @@
       {
         "id": 7,
         "nome": "Camiseta Estampada La Ralé 2022",
+        "tipo": "camiseta",
         "preco": 79.99,
         "imagem": "/images/camisa_2022/",
         "count_img": 1,
@@ -66,6 +73,7 @@
       {
         "id": 8,
         "nome": "Caneca La Ralé 2021",
+        "tipo": "acessorio",
         "preco": 39.99,
         "imagem": "/images/caneca/",
         "count_img": 1,
@@ -75,6 +83,7 @@
       {
         "id": 9,
         "nome": "Garrafa Térmica La Ralé 2021",
+        "tipo": "acessorios",
         "preco": 89.99,
         "imagem": "/images/garrafa/",
         "count_img": 1,
@@ -84,6 +93,7 @@
       {      
         "id": 10,
         "nome": "Blusa Abismo",
+        "tipo": "blusa",
         "preco": 89.99,
         "imagem": "/images/blusa/",
         "count_img": 1,
@@ -93,6 +103,7 @@
       {
         "id": 11,
         "nome": "Camiseta Boêmia",
+        "tipo": "camiseta",
         "preco": 99.99,
         "imagem": "/images/camiseta_boemia/",
         "count_img": 1,
@@ -102,6 +113,7 @@
       {
         "id": 12,
         "nome": "Camiseta Bródio",
+        "tipo": "camiseta",
         "preco": 99.99,
         "imagem": "/images/camiseta_brodio/",
         "count_img": 1,
@@ -111,6 +123,7 @@
       {
         "id": 13,
         "nome": "Camiseta Abismo",
+        "tipo": "camiseta",
         "preco": 99.99,
         "imagem": "/images/camiseta_abismo/",
         "count_img": 1,
@@ -120,6 +133,7 @@
       {
         "id": 14,
         "nome": "Camiseta Bródio",
+        "tipo": "camiseta",
         "preco": 99.99,
         "imagem": "/images/camiseta_brodio2/",
         "count_img": 1,
@@ -127,13 +141,54 @@
         "descricao": "Uma camiseta estampada com a imagem do álbum Bródio de La Ralé"
       },
       {
-        "id": 11,
+        "id": 15,
         "nome": "Camiseta Boêmia",
+        "tipo": "camiseta",
         "preco": 99.99,
         "imagem": "/images/camiseta_boemia2/",
         "count_img": 1,
-        "descricao_breve": "Camiseta branca Boêmia",
-        "descricao": "Uma camiseta branca estampada com a imagem do álbum Boêmia de La Ralé"
+        "descricao_breve": "Camiseta preta Boêmia",
+        "descricao": "Uma camiseta preta estampada com a imagem do álbum Boêmia de La Ralé"
+      },
+      {
+        "id": 16,
+        "nome": "Touca La Ralé",
+        "tipo": "acessorio",
+        "preco": 59.98,
+        "imagem": "/images/touca/",
+        "count_img": 1,
+        "descricao_breve": "Touca Marrom La Ralé",
+        "descricao": "Uma touca marrom bordada com uma caveira La Ralé"
+      },
+      {
+        "id": 17,
+        "nome": "Capa de Celular La Ralé 2021",
+        "tipo": "acessorio",
+        "preco": 29.98,
+        "imagem": "/images/capa/",
+        "count_img": 1,
+        "descricao_breve": "Capa de celular beje estilo La Ralé 2021 ",
+        "descricao": "Uma capa de celular beje ao estilo La Ralé Coleção Turnê 2021"
+      },
+      {
+        "id": 18,
+        "nome": "Chapéu La Ralé 2022",
+        "tipo": "acessorio",
+        "preco": 69.98,
+        "imagem": "/images/chapeu/",
+        "count_img": 1,
+        "descricao_breve": "Chapéu Bucket estilo La Ralé 2022",
+        "descricao": "Um Chapéu Bucket Beje com o estilo La Ralé Coleção Street 2022"
+      },
+      {
+        "id": 19,
+        "nome": "Caderno La Ralé",
+        "tipo": "acessorio",
+        "preco": 69.98,
+        "imagem": "/images/caderno/",
+        "count_img": 1,
+        "descricao_breve": "Caderno de Desenho estilo La Ralé",
+        "descricao": "Um belo caderno de desenho ao melhor estilo La Ralé"
       }
     ]
   }
