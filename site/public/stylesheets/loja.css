@@ -11,3 +11,12 @@ header {
 footer {
     background-color: #f6f2e7;
 }
+
+
+#nav li a .active{
+    color: black;
+}
+
+#nav li a:not(.active){
+    color: gray;
+}

@@ -30,9 +30,9 @@ function aumentarProduto(id) {
     });
 }
 
+
+const selectPagamento = document.getElementById('selectPagamento');
 function realizarPedido() {
-    const selectPagamento = document.getElementById('selectPagamento');
-    
 
     const dados = {
         totalCarrinho: totalCarrinho,
@@ -41,11 +41,13 @@ function realizarPedido() {
         pagamento: selectPagamento.value
     };
     console.log(dados)
+
     fetch(`/carrinho/finalizar-compra/`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json' // Indica que o corpo da requisição é JSON
         },
+        
         body: JSON.stringify(dados)
     })
     .then(response => {
@@ -59,6 +61,21 @@ function realizarPedido() {
         console.error('Erro ao remover o produto:', error);
     });
 }
+
+function VerificarPagamento() {
+    var botao = document.getElementById("butao");
+    if (selectPagamento.value === '') {
+        selectPagamento.classList.add('is-invalid');
+        botao.disabled = true;
+        console.log('ué')
+
+    } else {
+        selectPagamento.classList.remove('is-invalid');
+        selectPagamento.classList.add('is-valid');
+        botao.disabled = false;
+    }
+}
+
 
 fetch(`https://opencep.com/v1/${cepUrl.replace(/[^0-9]/g,'')}.json`)
     .then(response => {
@@ -78,3 +95,8 @@ fetch(`https://opencep.com/v1/${cepUrl.replace(/[^0-9]/g,'')}.json`)
         console.error('Erro:', error);
 });
 
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    VerificarPagamento();
+});

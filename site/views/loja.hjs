@@ -358,6 +358,25 @@
     </header>
 
     <main>
+        <div class="container-fluid mb-3">
+            <ul id="nav" class="nav nav-underline justify-content-center">
+            <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Todos os itens</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="loja">Coleções</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Acessórios</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Camisetas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Blusas</a>
+                </li>
+            </ul>
+        </div>
         <div class="container-fluid">
             <div id="rows" class="row row-cols-2 row-cols-md-3 g-4">
             </div>

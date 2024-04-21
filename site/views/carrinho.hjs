@@ -421,8 +421,8 @@
                         </table>
                         <div class="d-grid gap-2">
                             <button id="butao" class="btn btn-primary" type="button" onclick="realizarPedido()">Realizar Pedido</button>
-                            <select id="selectPagamento" class="form-select text-center" name="pagamento" style="border: solid 1px black;" required>
-                                <option selected disabled>Selecione a opção de pagamento</option>
+                            <select id="selectPagamento" class="form-select text-center" name="pagamento" style="border: solid 1px black;" onchange="VerificarPagamento()" required>
+                                <option selected disabled value="">Selecione a opção de pagamento</option>
                                 <option value="Pix">Pix</option>
                                 <option value="Débito">Débito</option>
                                 <option value="Crédito">Crédito</option>
@@ -462,6 +462,9 @@
         const freteCarrinho = '{{ frete }}';
         const valCarrinho = '{{ total }}';
         console.log(cepUrl)
+
+        const enviarPagamento = document.getElementById('butao')
+        enviarPagamento.disable = true
     </script>
     <script src="/javascripts/views_script/carrinho_views.js"></script>
 </body>
