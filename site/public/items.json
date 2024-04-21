@@ -43,7 +43,7 @@
       {
         "id": 5,
         "nome": "Boné 2022",
-        "tipo": "colecao",
+        "tipo": "acessorio",
         "preco": 59.99,
         "imagem": "/images/bone/",
         "count_img": 1,

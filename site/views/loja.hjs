@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="javascripts/path.js"></script>
-    <link rel="stylesheet" href="stylesheets/loja.css">
-    <link rel="shortcut icon" href="1710466746100.svg" type="image/x-icon">
+    <script src="/javascripts/path.js"></script>
+    <link rel="stylesheet" href="/stylesheets/loja.css">
+    <link rel="shortcut icon" href="/1710466746100.svg" type="image/x-icon">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Loja - La RaLé</title>
@@ -361,19 +361,19 @@
         <div class="container-fluid mb-3">
             <ul id="nav" class="nav nav-underline justify-content-center">
             <li class="nav-item">
-                    <button class="nav-link active" aria-current="page">Todos os itens</a>
+                    <button id="total" class="nav-link active" onclick="select_itens(this)">Todos os itens</button>
                 </li>
                 <li class="nav-item">
                     <button id="colecao" class="nav-link" onclick="select_itens(this)">Coleções</button>
                 </li>
                 <li class="nav-item">
-                    <button id="acessorio" class="nav-link">Acessórios</a>
+                    <button id="acessorio" class="nav-link" onclick="select_itens(this)">Acessórios</button>
                 </li>
                 <li class="nav-item">
-                    <button id="camiseta" class="nav-link">Camisetas</a>
+                    <button id="camiseta" class="nav-link" onclick="select_itens(this)">Camisetas</button>
                 </li>
                 <li class="nav-item">
-                    <button id="blusa" class="nav-link">Blusas</a>
+                    <button id="blusa" class="nav-link" onclick="select_itens(this)">Blusas</button>
                 </li>
             </ul>
         </div>
@@ -421,8 +421,13 @@
             </footer>
         </div>
     </footer>
+    <script>
+        var filter = "total";
+        console.log(filter);
+        console.log(typeof(filter));
+    </script>
 
-    <script src="javascripts/views_script/loja_views.js"></script>
+    <script src="/javascripts/views_script/loja_views.js"></script>
     <script src="/javascripts/views_script/logout.js"></script>
 
 </body>

@@ -25,44 +25,47 @@ router.get('/', async function(req, res, next) {
             var produtoJSON = items.find(objeto => objeto.id === parseInt(id));
             
             produtos_cards += `
-                <div class="card" prodID ="${produtoJSON.id}">
-                    <div class="card-body">
-                        <div class="row">
-                            <div id="alinhar" class="col-md-2">
-                                <img src="${produtoJSON.imagem}/1.png" class="img-fluid m-auto">
+            <div class="card" prodID="${produtoJSON.id}">
+            <div class="card-body">
+                <div class="row">
+                    <div id="alinhar" class="col-md-2">
+                        <img src="${produtoJSON.imagem}/1.png" class="img-fluid m-auto">
+                    </div>
+                    <div class="col-md-4" style="display: flex; align-items: center;">
+                        <p class="card-text h4">${produtoJSON.nome}</p>
+                    </div>
+                    <div id="alinhar" class="col-md-4">
+                        <div class="row m-auto">
+                            <div id="alinhar" class="col-3">
+                                <button id="butaozin" type="button" onclick="diminuirProduto(${produtoJSON.id}, 0)" >
+                                    <svg class="bi bi" width="24" height="24" fill="currentColor"><use xlink:href="#<-seta"/></svg>
+                                </button>
                             </div>
-                            <div class="col-md-4" style="display: flex; align-items: center;">
-                                <p class="card-text h4">${produtoJSON.nome}</p>
-                            </div>
-                            <div class="col-md-4">
+                            <div class="col-3" style="padding: 0px;">
                                 <p class="text-center" style="margin: 0px;">Quant.</p>
-                                <div class="row m-auto">
-                                    <div id="alinhar" class="col-4">
-                                        <button id="butaozin" type="button" onclick="diminuirProduto(${produtoJSON.id}, 0)" >
-                                            <svg class="bi bi" width="24" height="24" fill="currentColor"><use xlink:href="#<-seta"/></svg>
-                                        </button>
-                                    </div>
-                                    <div id="alinhar" class="col-4" style="padding: 0px;">
-                                        <input id="produNum" class="form-control text-center" type="text" value="${quantidade}">
-                                    </div>
-                                    <div id="alinhar" class="col-4">
-                                        <button id="butaozin" type="button" onclick="aumentarProduto(${produtoJSON.id})">
-                                            <svg class="bi bi" width="24" height="24" fill="currentColor"><use xlink:href="#seta->"/></svg>
-                                        </button>
-                                    </div>
-                                </div>
+                                <input id="produNum" class="form-control text-center" type="text" value="1">
+                            </div>
+                            <div id="alinhar" class="col-3">
+                                <button id="butaozin" type="button" onclick="aumentarProduto(${produtoJSON.id})">
+                                    <svg class="bi bi" width="24" height="24" fill="currentColor"><use xlink:href="#seta->"/></svg>
+                                </button>
+                            </div>
+                            <div id="alinhar" class="col-3">
                                 <div id="alinhar" class="container-fluid mt-1">
-                                    <button class="btn btn-outline-danger" type="button" onclick="diminuirProduto(${produtoJSON.id}, 1)">
+                                    <button class="btn btn-outline-danger" type="button" onclick="diminuirProduto(${produtoJSON.id}, 1)>
                                         <svg class="bi bi" width="24" height="24" fill="currentColor"><use xlink:href="#lixo"/></svg>
                                     </button>
                                 </div>
                             </div>
-                            <div id="alinhar" class="col-md-2 mt-3">
-                                <h6 id="precin">${produtoJSON.preco * quantidade}</h6>
-                            </div>
                         </div>
                     </div>
+                    <div id="alinhar" class="col-md-2 mt-3">
+                        <h6 id="precin">R$ ${produtoJSON.preco * quantidade}</h6>
+                    </div>
                 </div>
+            </div>
+        </div>
+            </div>
             `;
             
             
