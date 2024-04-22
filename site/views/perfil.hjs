@@ -356,11 +356,11 @@
         </div>
     </header>
 
-    <form class="container-fluid m-auto">
+    <form method="post" action="/perfil" class="container-fluid m-auto">
         <div class="row m-auto "><h1 class="text-center mt-3">Perfil</h1></div>
         <div class="row m-auto mb-3">
             <div class="col-md-4">
-                <img id="circle" src="data:image/jpeg;base64, {{ imagem }}" class="img-fluid"> 
+                <img id="circle" src="{{ imagem }}" class="img-fluid"> 
             </div>
             <div class="col-md-4">
                 <ul class="list-group mb-3">
@@ -408,9 +408,9 @@
                 <div class="card" style="background-color: black;">
                     <div class="card-body" style="color: #f6f2e7;">
                         <h5 class="card-title text-center">Álbum favorito</h5>
-                        <p id="texto" class="card-text text-center">Bródio</p>
+                        <p id="texto" class="card-text text-center">{{ album }}</p>
                     </div>
-                    <img id="img" src="/images/brodio.jpeg" class="card-img">
+                    <img id="img" src="/images/{{ album }}.jpeg" class="card-img">
                 </div>
             </div>        
         </div>

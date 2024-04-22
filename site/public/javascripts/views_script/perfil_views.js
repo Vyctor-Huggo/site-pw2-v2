@@ -8,17 +8,17 @@ function texts() {
     switch(valor) {
         case 'Boêmia':
             elemento = "Boêmia";
-            img.setAttribute("src", "images/boema.jpeg");
+            img.setAttribute("src", "images/Boêmia.jpeg");
             titulo.setAttribute("style", "background-color: #ffefef; color: black; border: 1px solid black;")
             break;
         case 'Bródio':
             elemento = "Bródio";
-            img.setAttribute("src", "images/brodio.jpeg");
+            img.setAttribute("src", "images/Bródio.jpeg");
             titulo.setAttribute("style", "background-color: #1d2a20; color: #f6f2e7; border: 1px solid black;")
             break;
         case 'Abismo':
             elemento = "Abismo";
-            img.setAttribute("src", "images/abismo.jpeg");
+            img.setAttribute("src", "images/Abismo.jpeg");
             titulo.setAttribute("style", "background-color: #464646; color: #f6f2e7; border: 1px solid black;")
             break;
     }

@@ -5,6 +5,8 @@ const dbPurchaseRequests = require('../public/javascripts/db_configs/Compras')
 const multer = require('multer');
 const sharp = require("sharp");
 const axios = require('axios');
+const fs = require('fs');
+const path = require('path');
 const router = express.Router();
 
 // Configuração do body-parser para analisar solicitações POST
@@ -36,7 +38,7 @@ router.get('/', function(req, res, next) {
                 telefone: user.telefone,
                 album: user.album_favorito,
                 cep: user.cep,
-                imagem: '/images/jubileu.jpg'}
+                imagem: '/images/templatePerfil.jpg'}
             )   
             console.log("cuidado:", user.album_favorito)
         }
@@ -48,31 +50,32 @@ router.get('/', function(req, res, next) {
 router.post('/', upload.single('file'), async (req, res, next) => {
     const album = req.body.album;
     const id = req.session.user[0].id;
+    var image = convertImageToBase64('/images/templatePerfil.jpg');
+
     console.log(album);
-    if (!req.file) {
-        return res.status(400).send('Nenhuma imagem enviada');
+    if (req.file) {
+            sharp(req.file.buffer)
+            .resize({
+                width: 200,
+                height: 200,
+                fit: sharp.fit.cover,
+                position: sharp.strategy.entropy
+            })
+            .toBuffer()
+            .then(croppedImage => {
+                image = croppedImage.toString('base64');
+            })
+            .catch(err => {
+                console.error('Erro ao cortar a imagem:', err);
+                res.status(500).send('Erro ao cortar a imagem');
+            });
     }
-    sharp(req.file.buffer)
-    .resize({
-        width: 200,
-        height: 200,
-        fit: sharp.fit.cover,
-        position: sharp.strategy.entropy
-    })
-    .toBuffer()
-    .then(croppedImage => {
-        const image = croppedImage.toString('base64');
+    
         
         perfilRequests.updateUser(id, image, album).then(user => {
             req.session.user = [user];
             res.status(200).redirect('/perfil');
         })
-        
-    })
-    .catch(err => {
-        console.error('Erro ao cortar a imagem:', err);
-        res.status(500).send('Erro ao cortar a imagem');
-    });
 });
 
 router.get('/pedidos', async function(req, res, next) {
@@ -171,5 +174,24 @@ router.get('/pedidos', async function(req, res, next) {
     
     
 });
+
+function convertImageToBase64() {
+    // Construir o caminho completo do arquivo usando 'path.join'
+    const imagePath = path.join(__dirname, 'public', 'images', 'templatePerfil.jpg');
+
+    // Ler o arquivo de imagem de forma assíncrona
+    fs.readFile(imagePath, (err, data) => {
+        if (err) {
+            console.error('Erro ao ler o arquivo:', err);
+            return;
+        }
+        // Converter dados binários para uma string Base64
+        const base64Image = Buffer.from(data).toString('base64');
+        console.log(base64Image); // Mostra a string Base64 no console
+
+        // Se necessário, você pode retornar ou fazer algo com a string base64Image aqui
+        // Por exemplo, você poderia retornar esta string como resposta HTTP
+    });
+}
 
 module.exports = router;

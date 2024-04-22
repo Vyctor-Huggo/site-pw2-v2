@@ -33,8 +33,6 @@ router.post('/', async function(req, res) {
     res.render('loja', { id: req.params.id });
 })
 
-router.ge
-
 router.get('/produto/:id', function(req, res, next) {
     if(isNaN(req.params.id)) {
         res.status(404).render('error', { message: "Produto não encontrado volte a loja" });
