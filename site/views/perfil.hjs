@@ -356,7 +356,7 @@
         </div>
     </header>
 
-    <form method="post" action="/perfil" class="container-fluid m-auto">
+    <form method="POST" action="/perfil" class="container-fluid m-auto">
         <div class="row m-auto "><h1 class="text-center mt-3">Perfil</h1></div>
         <div class="row m-auto mb-3">
             <div class="col-md-4">
@@ -384,7 +384,7 @@
                         CEP
                         <svg class="bi" width="16" height="16" fill="currentColor"><use xlink:href="#lapis"/></svg>
                     </li>
-                    <input id="cep" class="list-group-item" value="{{ cep }}" type="text" maxlength="9" required style="background-color: #f6f2e7; border: 1px solid black;">
+                    <input id="cep" name="cep" class="list-group-item" value="{{ cep }}" type="text" maxlength="9" style="background-color: #f6f2e7; border: 1px solid black;">
                     
                 </ul>
                 <div class="list-group mb-3">
@@ -395,7 +395,7 @@
                 </div>
                 <div class="list-group">
                     <button id="titulo" type="button" class="list-group-item list-group-item-action" aria-current="true" style="background-color: #1d2a20; color: #f6f2e7; border: 1px solid black;" disabled>Alterar álbum favorito</button>
-                    <select id="albuns" class="list-group-item " style="border: solid 1px black;" onchange="texts()" style="background-color: #f6f2e7; border: 1px solid black;">
+                    <select id="albuns" name="album" class="list-group-item " style="border: solid 1px black;" onchange="texts()" style="background-color: #f6f2e7; border: 1px solid black;">
                         <option selected disabled>Clique para Alterar</option>
                         <option value="Boêmia">Boêmia</option>
                         <option value="Bródio">Bródio</option>

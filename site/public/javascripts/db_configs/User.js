@@ -34,6 +34,8 @@ function updateUserImgbyID(image, id) {
             const query = `UPDATE usuarios SET imagem = ? WHERE id = ?`;
 
             db.run(query, [image, id]);
+            console.log('imagem:', image);
+
         });
     } catch (error) {
         console.error("Imagem:", error.message);
@@ -41,12 +43,29 @@ function updateUserImgbyID(image, id) {
     }
 }
 
-async function updateUserFavAlbumbyID(album, id) {
+function updateUserCepbyID(cep, id) {
+    try {
+        configdb.openDB().then(db => {
+            const query = `UPDATE usuarios SET cep = ? WHERE id = ?`;
+
+            db.run(query, [cep, id]);
+            console.log('carai , ', cep)
+
+        });
+    } catch (error) {
+        console.error("cep:", error.message);
+        throw error;
+    }
+}
+
+function updateUserFavAlbumbyID(album, id) {
     try {
         configdb.openDB().then(db => {
             const query = `UPDATE usuarios SET album_favorito = ? WHERE id = ?`;
 
             db.run(query, [album, id]);
+            console.log('cusagem, ', album);
+
         });
     } catch (error) {
         console.error("Imagem:", error.message);
@@ -97,13 +116,21 @@ async function showAllUsers() {
         
         console.log('Resultado da consulta:');
         console.log(rows);
-  
+
         return rows;
     } catch (error) {
         console.error('Erro ao buscar usuários:', error.message);
     }
-  }
+}
 
 
 
-module.exports = { addUser, getUserbyID , getUserbyEmail, updateUserImgbyID, updateUserFavAlbumbyID, showAllUsers }
+module.exports = { 
+    addUser, 
+    getUserbyID , 
+    getUserbyEmail, 
+    updateUserImgbyID, 
+    updateUserCepbyID, 
+    updateUserFavAlbumbyID, 
+    showAllUsers 
+};

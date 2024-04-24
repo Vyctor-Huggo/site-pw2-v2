@@ -1,29 +1,21 @@
 var dbUserRequests = require('./db_configs/User')
 
-async function updateUser(id, image, album) {
-    return new Promise((resolve, reject) => {
+async function updateUser(id, image, album, cep) {
         try {
-            if(!image) {
-                if(album) {
-                    dbUserRequests.updateUserFavAlbumbyID(album, id);
-                }
-            } else {
-                dbUserRequests.updateUserImgbyID(image, id);
-    
-                if(album) {
-                    dbUserRequests.updateUserFavAlbumbyID(album, id);
-                }
-            }
-            
-            dbUserRequests.getUserbyID(id).then(user => {
-                resolve(user);
-            });
+                await dbUserRequests.updateUserFavAlbumbyID(album, id);
+                await dbUserRequests.updateUserImgbyID(image, id);
+                dbUserRequests.updateUserCepbyID(cep, id).then(() => {
+                    console.log('porrrrrrrrrrrrrrrrrrrrrrrraaaaaaaaaaaa')
+
+                    dbUserRequests.getUserbyID(id).then(user => {
+                        return user;
+                    });
+                })
+
+                
         } catch (error) {
             console.error('Erro ao fazer update do perfil:', error.message);
-            reject(error);
         }
-    })
-    
 }
 
-module.exports = { updateUser }
+module.exports = { updateUser };
