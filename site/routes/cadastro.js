@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('cadastro', { title: 'Express' });
+  res.render('cadastro', { imagem: '/images/templatePerfil.jpg' });
 });
 
 router.post('/', async (req, res, next) => {

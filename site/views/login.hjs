@@ -352,7 +352,7 @@
                     <svg id="perfil" class="bi" width="40" height="40" fill="">
                         <defs>
                             <pattern id="imagePattern" patternUnits="userSpaceOnUse" width="24" height="24">
-                                <image xlink: href="img/jubileu.jpg" x="-4" y="-4" width="24" height="24" />
+                                <image xlink: href="{{ imagem }}" x="-4" y="-4" width="24" height="24" />
                             </pattern>
                         </defs>
                         <use xlink:href="#circle" fill="url(#imagePattern)"/>
@@ -434,6 +434,9 @@
         </div>
     </footer>
 
+    <script>
+        console.log("aaaaaaaaaa:", {{imagem}});
+    </script>
     <script src="/javascripts/views_script/login_views.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="/javascripts/views_script/logout.js"></script>

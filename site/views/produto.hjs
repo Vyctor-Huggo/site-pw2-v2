@@ -326,7 +326,7 @@
                     <svg id="perfil" class="bi" width="40" height="40" fill="">
                         <defs>
                             <pattern id="imagePattern" patternUnits="userSpaceOnUse" width="24" height="24">
-                                <image xlink: href="img/jubileu.jpg" x="-4" y="-4" width="24" height="24" />
+                                <image xlink: href="{{ imagem }}" x="-4" y="-4" width="24" height="24" />
                             </pattern>
                         </defs>
                         <use xlink:href="#circle" fill="url(#imagePattern)"/>

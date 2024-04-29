@@ -66,23 +66,23 @@ router.get('/users/:id?', function(req, res, next) {
         dbUserRequests.showAllUsers().then(users => {
             let userListHTML = '<ul>';
             users.forEach(user => {
-              const userJSON = JSON.stringify(user, null, 2);
-              userListHTML += `<li><pre>${userJSON}</pre></li>`;
+                const userJSON = JSON.stringify(user, null, 2);
+                userListHTML += `<li><pre>${userJSON}</pre></li>`;
             });
             userListHTML += '</ul>';
             res.send(`
-              <!DOCTYPE html>
-              <html lang="en">
-              <head>
-                  <meta charset="UTF-8">
-                  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                  <title>Lista de JSONs</title>
-              </head>
-              <body>
-                  <h1>Lista de JSONs:</h1>
-                  ${userListHTML}
-              </body>
-              </html>
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Lista de JSONs</title>
+                </head>
+                <body>
+                    <h1>Lista de JSONs:</h1>
+                    ${userListHTML}
+                </body>
+                </html>
             `);
         }).catch(error => {
             console.error('Erro ao buscar usuários:', error.message);
@@ -95,23 +95,23 @@ router.get('/purchases', function(req, res, next) {
     dbPurchaseRequests.showAllPurchasesbyUser(1).then(compras => {
         let comprasListHTML = '<ul>';
         compras.forEach(compra => {
-          const compraJSON = JSON.stringify(compra, null, 2);
-          comprasListHTML += `<li><pre>${compraJSON}</pre></li>`;
+            const compraJSON = JSON.stringify(compra, null, 2);
+            comprasListHTML += `<li><pre>${compraJSON}</pre></li>`;
         });
         comprasListHTML += '</ul>';
         res.send(`
-          <!DOCTYPE html>
-          <html lang="en">
-          <head>
-              <meta charset="UTF-8">
-              <meta name="viewport" content="width=device-width, initial-scale=1.0">
-              <title>Lista de JSONs</title>
-          </head>
-          <body>
-              <h1>Lista de JSONs:</h1>
-              ${comprasListHTML}
-          </body>
-          </html>
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Lista de JSONs</title>
+            </head>
+            <body>
+                <h1>Lista de JSONs:</h1>
+                ${comprasListHTML}
+            </body>
+            </html>
         `);
     }).catch(error => {
         console.error('Erro ao buscar Compras:', error.message);
@@ -124,20 +124,20 @@ function printUserbyId(id, res) {
         const userJSON = JSON.stringify(user, null, 2);
         var userListHTML = `<li><pre>${userJSON}</pre></li>`;
         res.send(`
-          <!DOCTYPE html>
-          <html lang="en">
-          <head>
-              <meta charset="UTF-8">
-              <meta name="viewport" content="width=device-width, initial-scale=1.0">
-              <title>Lista de JSONs</title>
-          </head>
-          <body>
-              <h1>user:</h1>
-              <ul>
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Lista de JSONs</title>
+            </head>
+            <body>
+                <h1>user:</h1>
+                <ul>
                 ${userListHTML}   
-              </ul>
-          </body>
-          </html>
+                </ul>
+            </body>
+            </html>
         `);
     })
 }

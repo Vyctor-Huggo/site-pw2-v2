@@ -80,7 +80,8 @@ router.get('/', async function(req, res, next) {
             totalFrete: parseFloat(total + frete),
             cep: `${user.cep}`, 
             nome: `${user.nome}`, 
-            telefone: `${user.telefone}`
+            telefone: `${user.telefone}`,
+            imagem: user.imagem
         });
     } else {
         res.redirect('/login'); 

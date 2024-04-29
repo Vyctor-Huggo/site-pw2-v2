@@ -191,7 +191,7 @@ router.get('/pedidos', async function(req, res, next) {
                 </div>
                 `;
             });
-            res.render('pedidos', {pedidos_card, modal_card});
+            res.render('pedidos', {pedidos_card, modal_card, imagem: user.imagem});
         })
     } else {
         res.redirect('/login');
@@ -199,17 +199,5 @@ router.get('/pedidos', async function(req, res, next) {
     
     
 });
-
-async function templatePerfilImgString64() {
-    try {
-        const imagePath = path.join(__dirname, 'images', 'templatePerfil.jpg');
-        const data = await fs.readFile(imagePath);
-        const base64Image = Buffer.from(data).toString('base64');
-        return base64Image;
-    } catch (error) {
-        console.error("Erro na imagem template: ", error);
-        throw error; // Lança o erro para ser tratado onde a função é chamada
-    }
-}
 
 module.exports = router;

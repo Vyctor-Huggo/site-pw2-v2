@@ -7,12 +7,14 @@ const loginReqs = require('../public/javascripts/loginRequests')
 router.use(bodyParser.urlencoded({ extended: true }));
 
 router.get('/', function(req, res, next) {
-    if(!req.session.user) {
-        res.render('login', {message: ''});
+    if(req.session.user) {
+            res.redirect('/perfil')
     } else {
-        res.redirect('/perfil');
+        res.render('login', {imagem: "/images/templatePerfil.jpg"}
+        )   
     }
 });
+
 router.post('/', async (req, res) => {
     const { email, senha } = req.body;
     console.log('email: ', email, '\nsenha: ', senha);
@@ -23,7 +25,7 @@ router.post('/', async (req, res) => {
         res.redirect('/perfil')
     } catch (error) {
         console.error('Erro ao fazer login:', error.message);
-        res.render('login', {message: error.message})
+        res.render('login', {message: error.message, imagem: "/images/templatePerfil.jpg"})
         res.status(401);
     }
 });

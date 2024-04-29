@@ -16,7 +16,8 @@ async function addUser(nome, email, senha, albumFavorito, dataNascimento, telefo
                 album_favorito: albumFavorito,
                 data_nascimento: dataNascimento,
                 telefone: telefone,
-                cep: cep
+                cep: cep,
+                imagem: "/images/templatePerfil.jpg"
             }
         })
         console.log('User criado com sucesso: '. newUser);

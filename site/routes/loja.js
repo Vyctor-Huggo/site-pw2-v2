@@ -24,11 +24,11 @@ router.get('/', function(req, res, next) {
                 })
                 console.log("cwewe:", (typeof(user.imagem)), "\n")
                 //console.log("cu:", (user.imagem).data.toString('base64'))
-            } else {
-                res.render('loja', {
-                    imagem: '/images/templatePerfil.jpg'}
-                )   
             }
+        } else {
+            res.render('loja', {
+                imagem: '/images/templatePerfil.jpg'}
+            )   
         }
     } catch (error) {
         console.error('Erro ao buscar dados:', error.message);
@@ -50,7 +50,7 @@ router.post('/', async function(req, res) {
     console.log(req.session.prods);
     
 
-    res.render('loja', { id: req.params.id });
+    res.render('loja', { id: req.params.id, imagem: "/images/templatePerfil.jpg"});
 })
 
 router.get('/produto/:id', function(req, res, next) {
@@ -58,7 +58,12 @@ router.get('/produto/:id', function(req, res, next) {
         res.status(404).render('error', { message: "Produto não encontrado volte a loja" });
     } else {
         try {
-            res.render('produto', { id: req.params.id });
+            if(req.session.user) {
+                res.render('produto', { id: req.params.id, imagem: req.session.user[0].imagem });
+            } else {
+                res.render('produto', { id: req.params.id, imagem: req.session.user[0].imagem });
+            }
+            
         } catch (error) {
             console.error('Erro ao buscar dados:', error.message);
             res.status(500).send('<h1 id="erro">Erro ao buscar dados do produto</h1>');

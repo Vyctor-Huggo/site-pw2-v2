@@ -55,7 +55,7 @@ function realizarPedido() {
             throw new Error('Erro ao remover o produto do carrinho');
         };
         
-        window.location.href = '/carrinho/finalizar-compra/';
+        window.location.href = '/perfil/pedidos';
     })
     .catch(error => {
         console.error('Erro ao remover o produto:', error);
