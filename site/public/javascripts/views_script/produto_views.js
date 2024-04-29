@@ -4,7 +4,7 @@ async function usingData() {
         const response = await fetch('../../items.json');
         const lojaData = await response.json();
 
-        const produto = lojaData.itens[id];
+        const produto = lojaData.itens.find(objeto => objeto.id === parseInt(id));
 
         const nome = document.getElementById("nome");
         const img = document.getElementById("imagem");

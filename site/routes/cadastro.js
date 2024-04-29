@@ -17,11 +17,10 @@ router.post('/', async (req, res, next) => {
   const { nome, email, senha, album_favorito, nascimento, telefone, cep, dddSelect } = req.body;
   const dddtelefone = `${dddSelect} ${telefone}`
   try {
-    const token = await dbUserRequests.addUser(nome, email, senha, album_favorito, nascimento, dddtelefone, cep);
-    
+    const newUser = await dbUserRequests.addUser(nome, email, senha, album_favorito, nascimento, dddtelefone, cep);
+    console.log("usuario criado: ", newUser);
     //Metodo utilizando cookies de sessão
     const user = await loginReqs.validateLogin(email, senha);
-    console.log("Login efetuado: ", user);
     req.session.user = [user];
     console.log("session:", req.session.user);
 
@@ -29,7 +28,7 @@ router.post('/', async (req, res, next) => {
     //console.log(token);
     //res.redirect(`/db/users/${token}`);
     
-    res.redirect(`/db/login/user`);
+    res.redirect(`/perfil`);
   } catch (error) {
     console.error('Erro ao adicionar usuário:', error.message);
     res.status(500).send('Erro interno do servidor');

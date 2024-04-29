@@ -335,7 +335,7 @@
                     <svg id="perfil" class="bi" width="40" height="40" fill="">
                         <defs>
                             <pattern id="imagePattern" patternUnits="userSpaceOnUse" width="24" height="24">
-                                <image xlink: href="/images/jubileu.jpg" x="-4" y="-4" width="24" height="24" />
+                                <image xlink: href="{{ imagem }}" x="-4" y="-4" width="24" height="24" />
                             </pattern>
                         </defs>
                         <use xlink:href="#circle" fill="url(#imagePattern)"/>
@@ -356,7 +356,7 @@
         </div>
     </header>
 
-    <form method="POST" action="/perfil" class="container-fluid m-auto">
+    <form method="POST" action="/perfil" enctype="multipart/form-data" class="container-fluid m-auto">
         <div class="row m-auto "><h1 class="text-center mt-3">Perfil</h1></div>
         <div class="row m-auto mb-3">
             <div class="col-md-4">
@@ -390,7 +390,7 @@
                 <div class="list-group mb-3">
                     <button id="tituloColor" type="button" class="list-group-item list-group-item-action" aria-current="true" disabled>Alterar foto do perfil</button>
                     <div>
-                        <input id="campoColor" class="form-control list-group-item" type="file" id="formFile">
+                        <input id="campoColor" class="form-control list-group-item" type="file" name="file">
                     </div>
                 </div>
                 <div class="list-group">
@@ -441,7 +441,7 @@
         </div>
     </footer>
 
-    <!-- Scritp -->
+    <!-- Script -->
     <script src="/javascripts/views_script/perfil_views.js"></script>
     <script src="/javascripts/views_script/logout.js"></script>
 

@@ -4,13 +4,12 @@ async function updateUser(id, image, album, cep) {
         try {
                 await dbUserRequests.updateUserFavAlbumbyID(album, id);
                 await dbUserRequests.updateUserImgbyID(image, id);
-                dbUserRequests.updateUserCepbyID(cep, id).then(() => {
-                    console.log('porrrrrrrrrrrrrrrrrrrrrrrraaaaaaaaaaaa')
+                await dbUserRequests.updateUserCepbyID(cep, id)
 
-                    dbUserRequests.getUserbyID(id).then(user => {
-                        return user;
-                    });
-                })
+                const user = await dbUserRequests.getUserbyID(id);
+                console.log("Usuario atualizado: ", user);
+                return user;
+
 
                 
         } catch (error) {

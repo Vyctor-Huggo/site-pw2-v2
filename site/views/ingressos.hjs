@@ -367,7 +367,7 @@
                                     <p class="card-text">31/03 / Teatro Bom Sucesso</p>
                                 </div>
                                 <div class="col-md-6 m-auto d-flex justify-content-end">
-                                    <a href="#" class="btn btn-success">Compre Já!!</a>
+                                    <a href="#" class="btn btn-danger">Esgotado!!</a>
                                 </div>
                             </div>
                         </div>
@@ -378,11 +378,11 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-6">
-                                    <h5 class="card-title">Xique-Xique\BA</h5>
-                                    <p class="card-text">31/04 / Teatro Bom Sucesso</p>
+                                    <h5 class="card-title">São Paulo\SP</h5>
+                                    <p class="card-text">31/04 / Bar do Seu Jonas</p>
                                 </div>
                                 <div class="col-6 m-auto d-flex justify-content-end">
-                                    <a href="#" class="btn btn-success">Compre Já!!</a>
+                                    <a href="#" class="btn btn-danger">Esgotado!!</a>
                                 </div>
                             </div>
                         </div>
@@ -393,11 +393,11 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-6">
-                                    <h5 class="card-title">Xique-Xique\BA</h5>
-                                    <p class="card-text">31/05 / Teatro Bom Sucesso</p>
+                                    <h5 class="card-title">Campinas\SP</h5>
+                                    <p class="card-text">31/05 / Cutelaria Aguiar</p>
                                 </div>
                                 <div class="col-6 m-auto d-flex justify-content-end">
-                                    <a href="#" class="btn btn-success">Compre Já!!</a>
+                                    <a href="#" class="btn btn-danger">Esgotado!!</a>
                                 </div>
                             </div>
                         </div>
@@ -410,11 +410,11 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-6">
-                                <h5 class="card-title">Xique-Xique\BA</h5>
-                                <p class="card-text">31/06 / Teatro Bom Sucesso</p>
+                                <h5 class="card-title">Brumadinho\MG</h5>
+                                <p class="card-text">31/06 / Barragem da Vale</p>
                             </div>
                             <div class="col-6 m-auto d-flex justify-content-end">
-                                <a href="#" class="btn btn-success">Compre Já!!</a>
+                                <a href="#" class="btn btn-danger">Esgotado!!</a>
                             </div>
                         </div>
                     </div>
@@ -425,11 +425,11 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-6">
-                                <h5 class="card-title">Xique-Xique\BA</h5>
-                                <p class="card-text">31/07 / Teatro Bom Sucesso</p>
+                                <h5 class="card-title">Manaus\AM</h5>
+                                <p class="card-text">31/07 / Uma Tribo aí</p>
                             </div>
                             <div class="col-6 m-auto d-flex justify-content-end">
-                                <a href="#" class="btn btn-success">Compre Já!!</a>
+                                <a href="#" class="btn btn-danger">Esgotado!!</a>
                             </div>
                         </div>
                     </div>

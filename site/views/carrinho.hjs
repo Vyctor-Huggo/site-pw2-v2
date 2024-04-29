@@ -392,8 +392,8 @@
                         <svg class="bi bi" width="24" height="24" fill="currentColor"><use xlink:href="#cesto"/></svg> 
                         PRODUTOS
                     </div>
-                    <div class="card-body">
-                            {{{ produtos_cards }}}
+                    <div class="card-body" id="cardPrincipal">
+                            
                     </div>
                 </div>
             </div>
@@ -407,15 +407,15 @@
                             <tbody>
                                 <tr>
                                     <td>Valor dos Produtos: </td>
-                                    <td>R$ {{ total }}</td>
+                                    <td id="val">R$ {{ total }}</td>
                                 </tr>
                                 <tr>
                                     <td>Frete: </td>
-                                    <td>R$ {{ frete }}</td>
+                                    <td id="frete">R$ {{ frete }}</td>
                                 </tr>
                                 <tr class="table-light">
                                     <td>Total</td>
-                                    <td>R$ {{ totalFrete }}</td>
+                                    <td id="total"></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -457,11 +457,14 @@
 
     <!-- Script -->
     <script>
-        const cepUrl = '{{ cep }}';
-        const totalCarrinho = '{{ totalFrete }}';
-        const freteCarrinho = '{{ frete }}';
-        const valCarrinho = '{{ total }}';
+        const prods = `{{{ produtos_cards }}}`;
+        const cepUrl = '{{ cep }}';     
+        const totalCarrinho = parseFloat('{{ totalFrete }}').toFixed(2);
+        const freteCarrinho = parseFloat('{{ frete }}').toFixed(2);
+        const valCarrinho = parseFloat('{{ total }}').toFixed(2);
         console.log(cepUrl)
+
+        document.getElementById('cardPrincipal').innerHTML = prods;
 
         const enviarPagamento = document.getElementById('butao')
         enviarPagamento.disable = true

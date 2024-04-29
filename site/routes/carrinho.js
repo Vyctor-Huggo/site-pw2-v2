@@ -43,7 +43,7 @@ router.get('/', async function(req, res, next) {
                             </div>
                             <div class="col-3" style="padding: 0px;">
                                 <p class="text-center" style="margin: 0px;">Quant.</p>
-                                <input id="produNum" class="form-control text-center" type="text" value="1">
+                                <input id="produNum" class="form-control text-center" type="text" value="${quantidade}">
                             </div>
                             <div id="alinhar" class="col-3">
                                 <button id="butaozin" type="button" onclick="aumentarProduto(${produtoJSON.id})">
@@ -52,7 +52,7 @@ router.get('/', async function(req, res, next) {
                             </div>
                             <div id="alinhar" class="col-3">
                                 <div id="alinhar" class="container-fluid mt-1">
-                                    <button class="btn btn-outline-danger" type="button" onclick="diminuirProduto(${produtoJSON.id}, 1)>
+                                    <button class="btn btn-outline-danger" type="button" onclick="diminuirProduto(${produtoJSON.id}, 1)">
                                         <svg class="bi bi" width="24" height="24" fill="currentColor"><use xlink:href="#lixo"/></svg>
                                     </button>
                                 </div>

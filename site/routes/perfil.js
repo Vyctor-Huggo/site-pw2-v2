@@ -5,16 +5,15 @@ const dbPurchaseRequests = require('../public/javascripts/db_configs/Compras')
 const multer = require('multer');
 const sharp = require("sharp");
 const axios = require('axios');
-const fs = require('fs');
+const fs = require('fs').promises;
 const path = require('path');
 const { Console } = require('console');
 const router = express.Router();
 
+const upload = multer({ storage: multer.memoryStorage() });
+
 // Configuração do body-parser para analisar solicitações POST
 router.use(bodyParser.urlencoded({ extended: true }));
-
-const storage = multer.memoryStorage();
-const upload = multer({ storage });
 
 router.get('/', function(req, res, next) {
     if(req.session.user) {
@@ -28,9 +27,10 @@ router.get('/', function(req, res, next) {
                 telefone: user.telefone,
                 album: user.album_favorito,
                 cep: user.cep,
-                imagem: `data:image/jpeg;base64, ${user.imagem}`}
-            )
-            console.log("cu:", user.album_favorito)
+                imagem: user.imagem
+            })
+            console.log("cwewe:", (typeof(user.imagem)), "\n")
+            //console.log("cu:", (user.imagem).data.toString('base64'))
         } else {
             res.render('perfil', {
                 nome: user.nome, 
@@ -54,28 +54,37 @@ router.post('/', upload.single('file'), async (req, res, next) => {
     const cep = req.session.user[0].cep;
     console.log(cep, ' att: ', cepAtt);
     const id = req.session.user[0].id;
-    var image = templatePerfilImgString64();
-
-    console.log("desgraçada: ", templatePerfilImgString64());
+    var image = '/images/templatePerfil.jpg'
 
     console.log(album);
-    if (req.file != undefined) {
-        console.log('TEMOS IMAGEM AAAAAAAAAAAAAAAAAAAAAAA')
-            sharp(req.file.buffer)
-            .resize({
-                width: 200,
-                height: 200,
-                fit: sharp.fit.cover,
-                position: sharp.strategy.entropy
-            })
-            .toBuffer()
-            .then(croppedImage => {
-                image = croppedImage.toString('base64');
-                console.log('wijqwfowefwfjio')
-            })
-            .catch(err => {
-                console.error('Erro ao cortar a imagem:', err);
+    console.log(req.file); 
+
+    if(req.file) {
+        console.log("olha a imageeeem")
+        try {
+            // Processando a imagem com Sharp
+            const croppedImage = await sharp(req.file.buffer)
+                .resize({
+                    width: 200,
+                    height: 200,
+                    fit: sharp.fit.cover,
+                    position: sharp.strategy.entropy
+                })
+                .toBuffer();
+            
+            // Salvar a imagem processada no sistema de arquivos
+            const filename = 'processed-' + Date.now() + path.extname(req.file.originalname);
+            fs.writeFile(path.join('', 'public', 'uploads', filename), croppedImage, (err) => {
+                if (err) {
+                    console.error('Erro ao salvar a imagem:', err);
+                }
+                res.send('Imagem processada e salva com sucesso.');
             });
+            image = `/uploads/${filename}`
+            console.log(image)
+        } catch (err) {
+            console.error('Erro ao processar a imagem:', err);
+        }
     }
     
     try {
@@ -85,6 +94,9 @@ router.post('/', upload.single('file'), async (req, res, next) => {
             res.status(200).redirect('/perfil');
         })
     } catch (error) {
+
+
+
         console.log('Erro ao atualizar: ', error);
     }
     
@@ -171,6 +183,7 @@ router.get('/pedidos', async function(req, res, next) {
                             </div>
                             <div class="modal-body" style="background-color: #f6f2e7;">
                                 <h5>Total pago: R$ ${compra.preco}</h5>
+                                <h5>Frete pago: R$ ${compra.frete}</h5>
                                     ${items_card}
                             </div>
                         </div>
@@ -187,20 +200,16 @@ router.get('/pedidos', async function(req, res, next) {
     
 });
 
-function templatePerfilImgString64() {
-    // Construir o caminho completo do arquivo usando 'path.join'
-    const imagePath = path.join('', 'public', 'images', 'r.jpg');
-
-    // Ler o arquivo de imagem de forma assíncrona
-    fs.readFile(imagePath, (err, data) => {
-        if (err) {
-            console.error('Erro ao ler o arquivo:', err);
-            return;
-        }
-        // Converter dados binários para uma string Base64
+async function templatePerfilImgString64() {
+    try {
+        const imagePath = path.join(__dirname, 'images', 'templatePerfil.jpg');
+        const data = await fs.readFile(imagePath);
         const base64Image = Buffer.from(data).toString('base64');
         return base64Image;
-    });
+    } catch (error) {
+        console.error("Erro na imagem template: ", error);
+        throw error; // Lança o erro para ser tratado onde a função é chamada
+    }
 }
 
 module.exports = router;

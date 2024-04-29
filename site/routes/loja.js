@@ -9,7 +9,27 @@ router.use(bodyParser.urlencoded({ extended: true }));
 
 router.get('/', function(req, res, next) {
     try {
-        res.render('loja');
+        if(req.session.user) {
+            const user = req.session.user[0];
+            console.log(user);
+            if(user.imagem) {
+                res.render('loja', {
+                    nome: user.nome, 
+                    email: user.email, 
+                    nascimento: user.data_nascimento, 
+                    telefone: user.telefone,
+                    album: user.album_favorito,
+                    cep: user.cep,
+                    imagem: user.imagem
+                })
+                console.log("cwewe:", (typeof(user.imagem)), "\n")
+                //console.log("cu:", (user.imagem).data.toString('base64'))
+            } else {
+                res.render('loja', {
+                    imagem: '/images/templatePerfil.jpg'}
+                )   
+            }
+        }
     } catch (error) {
         console.error('Erro ao buscar dados:', error.message);
         res.status(500).send('Erro ao buscar dados do produto');
@@ -25,7 +45,7 @@ router.post('/', async function(req, res) {
         req.session.prods = [];
     }
 
-    req.session.prods.push(produtos.itens[id].id);
+    req.session.prods.push(parseInt(id));
 
     console.log(req.session.prods);
     

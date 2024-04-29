@@ -6,7 +6,7 @@ const logger = require('morgan');
 const session = require('express-session');
 const crypto = require('crypto');
 
-const database = require('./public/javascripts/db_configs/configDB');
+//const database = require('./public/javascripts/db_configs/configDB');
 
 var cadastroRouter = require('./routes/cadastro');
 var db_reqRouter = require('./routes/db_requests');
@@ -23,7 +23,7 @@ var app = express();
 const secretKey = crypto.randomBytes(32).toString('hex');
 
 console.log('Secret key:', secretKey);
-database.createDB();
+//database.createDB();
 
 // Configuração do express-session
 app.use(session({

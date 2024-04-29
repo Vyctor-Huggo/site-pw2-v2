@@ -17,9 +17,7 @@ router.post('/', async (req, res) => {
     const { email, senha } = req.body;
     console.log('email: ', email, '\nsenha: ', senha);
     try {
-        // Verificar as credenciais do usuário
         const user = await loginReqs.validateLogin(email, senha);
-        console.log("Login efetuado: ", user);
         req.session.user = [user];
         console.log("session:", req.session.user);
         res.redirect('/perfil')

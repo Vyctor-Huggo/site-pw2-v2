@@ -99,4 +99,7 @@ fetch(`https://opencep.com/v1/${cepUrl.replace(/[^0-9]/g,'')}.json`)
 
 document.addEventListener('DOMContentLoaded', function() {
     VerificarPagamento();
+    document.getElementById('total').innerHTML = `R$ ${totalCarrinho}`;
+    document.getElementById('frete').innerHTML = `R$ ${freteCarrinho}`;
+    document.getElementById('val').innerHTML = `R$ ${valCarrinho}`;totalCarrinho
 });
