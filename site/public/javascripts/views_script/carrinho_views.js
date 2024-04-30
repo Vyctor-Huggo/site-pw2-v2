@@ -85,11 +85,12 @@ fetch(`https://opencep.com/v1/${cepUrl.replace(/[^0-9]/g,'')}.json`)
         return response.json();
     })
     .then(data => {
-        const cidade = data.localidade
-        const estado = data.uf
+        const bairro = data.bairro;
+        const cidade = data.localidade;
+        const estado = data.uf;
         const cep = data.cep;
 
-        const enderecoValor = document.getElementById('endereco').innerHTML = `${cidade}, ${estado}, Brasil, ${cep} `
+        const enderecoValor = document.getElementById('endereco').innerHTML = `${bairro}, ${cidade}, ${estado}, Brasil, ${cep} `
     })
     .catch(error => {
         console.error('Erro:', error);

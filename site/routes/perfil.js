@@ -54,10 +54,11 @@ router.post('/', upload.single('file'), async (req, res, next) => {
     const cep = req.session.user[0].cep;
     console.log(cep, ' att: ', cepAtt);
     const id = req.session.user[0].id;
-    var image = '/images/templatePerfil.jpg'
+    var image = req.session.user[0].imagem;
+    
 
     console.log(album);
-    console.log(req.file); 
+    console.log(image); 
 
     if(req.file) {
         console.log("olha a imageeeem")
@@ -65,11 +66,13 @@ router.post('/', upload.single('file'), async (req, res, next) => {
             // Processando a imagem com Sharp
             const croppedImage = await sharp(req.file.buffer)
                 .resize({
-                    width: 200,
-                    height: 200,
+                    width: 800,
+                    height: 800,
                     fit: sharp.fit.cover,
                     position: sharp.strategy.entropy
                 })
+                .sharpen()
+                .toFormat('jpeg', { quality: 100 }) 
                 .toBuffer();
             
             // Salvar a imagem processada no sistema de arquivos

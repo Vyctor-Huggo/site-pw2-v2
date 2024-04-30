@@ -37,5 +37,7 @@ model compras {
   metodo_pagamento String
   frete Decimal
   cep String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
   usuarios usuarios @relation(fields: [usuario_id], references: [id])
 }
