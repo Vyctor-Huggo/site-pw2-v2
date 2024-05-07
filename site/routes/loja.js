@@ -1,7 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const router = express.Router();
-const agrupar = require('../public/javascripts/agrupar')
 const axios = require('axios');
 
 // Configuração do body-parser para analisar solicitações POST

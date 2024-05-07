@@ -7,7 +7,6 @@ const sharp = require("sharp");
 const axios = require('axios');
 const fs = require('fs').promises;
 const path = require('path');
-const { Console } = require('console');
 const router = express.Router();
 
 const upload = multer({ storage: multer.memoryStorage() });
