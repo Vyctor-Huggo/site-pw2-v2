@@ -1,5 +1,5 @@
 ## Para rodar a aplicação (**Node.js** e **npm** necessários):
- - Abra o zip do repositório no terminal
+ - Abra a pasta do repositório pelo terminal
  - Digite "npm install"
  - Depois, caso esteja no **Windows**, digite **"set DEBUG=test:*"** e em seguida **"npm start"**
  - Caso esteja utilizando o **Linux**, digite **"DEBUG=test:*"** e em seguida **"npm start"**
